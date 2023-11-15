@@ -1,0 +1,182 @@
+.low {
+  color: blue;
+}
+
+.high {
+  color: red;
+}
+
+.same {
+  color: #000000
+}
+
+.hidden_text {
+  position: absolute;
+  width: 0;
+  height: 0;
+  font-size: 0;
+  color: transparent;
+  background-color: transparent;
+  top : 0;
+  right: 0;
+}
+
+.sprite_img::before {
+  content: '';
+  display: block;
+  background: url("/stocksprite-1x.png") no-repeat;
+  background-size: 7.8rem 28.2rem;
+}
+
+.news,
+.unlike,
+.like {
+  padding: 0 0 0 1rem;
+  height: 100%;
+}
+.news::before {
+  width: 3.4rem;
+  height: 3.4rem;
+  background-position: -3.9rem -20.9rem;
+}
+
+.news:hover::before,
+.news:active::before {
+  background-position: -0.5rem -20.9rem;
+}
+
+.unlike::before {
+  width: 3.4rem;
+  height: 3.4rem;
+  background-position: -3.9rem -7.3rem;
+}
+
+.like::before {
+  width: 3.4rem;
+  height: 3.4rem;
+  background-position: -0.5rem -7.3rem;
+}
+
+.title {
+  display: grid;
+  width: 100%;
+  grid-template-rows: 1fr 2fr;
+  min-width: 35rem;
+}
+
+.top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.1rem solid #000000;
+}
+.top .company span:first-child {
+  font-size: 1.2rem;
+}
+.top .company span {
+  padding: 1rem 0 1rem 0.5rem;
+  font-weight: 550;
+}
+
+.lower {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr;
+  border-bottom: 0.1rem solid black;
+}
+.price {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  & p {
+    width: calc(100% - 2rem);
+    padding: 1rem 0.5rem 1rem 1.5rem;
+    font-weight: 600;
+    text-align: center;
+  }
+  & p:first-child {
+    font-size: 2rem;
+  }
+  & p:last-child {
+    font-size: 1.4rem;
+  }
+}
+
+.quote {
+  display: grid;
+  grid-template-columns: 0.6fr 1fr;
+  align-items: center;
+}
+
+.quote .stock_price,
+.quote .stock_total {
+  display: flex;
+  flex-direction: column;
+}
+
+.quote .stock_price span,
+.quote .stock_total span {
+  padding: 0.5rem;
+}
+
+.price_vs {
+  position: relative;
+}
+.price_vs.high::before,
+.price_vs.low::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -1.25rem;  
+}
+.price_vs.high::before {
+  border-top: 0;
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
+  border-bottom: 0.5rem solid red;
+}
+.price_vs.low::before {
+  border-top: 0.5rem solid blue;
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
+  border-bottom: 0;
+}
+.mkp::before {
+  content: '시가';
+}
+.lopr::before {
+  content: '저가';
+}
+.hipr::before {
+  content: '고가';
+}
+.trqu::before {
+  content: '거래량';
+}
+.tr_prc::before {
+  content: '거래대금';
+}
+.mrkt_tot_amt::before {
+  content: '시가총액';
+}
+
+.mkp,
+.lopr, 
+.hipr,
+.trqu, 
+.tr_prc, 
+.mrkt_tot_amt {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.mkp::before,
+.lopr::before, 
+.hipr::before,
+.trqu::before, 
+.tr_prc::before, 
+.mrkt_tot_amt::before {
+  font-size: 1.3rem;
+  color: gray;
+  margin-right: 1rem;
+}

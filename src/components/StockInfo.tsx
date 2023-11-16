@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import styles from './stockInfo.module.css';
 import cn from 'classnames';
+import { useSetRecoilState } from 'recoil';
+import { toastState } from '../utils/RecoilProvider';
 
 type StockInfoData = {
-  basDt: string;
+  basDt: string;  // 개시일자
   srtnCd: string; // 코드
   itmsNm: string; // 종목명
   mrktCtg: string; // 시장구분
@@ -24,6 +26,7 @@ type HasLike = {
 }
 
 const StockInfo = (props: StockInfoData) => {
+  const setToast = useSetRecoilState(toastState);
   const likes: HasLike[] = JSON.parse(localStorage.getItem('likes') as string);
   const hasLike: HasLike[] = likes?.filter((like: HasLike) => like.srtnCd === props.srtnCd) ?? null;
   const [isLike, setIsLike] = useState<boolean>(hasLike?.length > 0 ? hasLike[0].like : false);
@@ -49,6 +52,10 @@ const StockInfo = (props: StockInfoData) => {
     } else {
       localStorage.setItem('likes', JSON.stringify([{srtnCd: props.srtnCd, like: !isLike}]));
     }
+    setToast({
+      isOpen: true,
+      context: isLike ? "관심종목에서 삭제하였습니다" : "관심종목에 추가하였습니다.",
+      timer: 1500});
     setIsLike(prev => !prev);
   }
   const numberCommaConvert = 

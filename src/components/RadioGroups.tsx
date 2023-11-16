@@ -1,5 +1,6 @@
 import { FormEvent, Fragment, useState } from "react";
 import styles from './radioGroups.module.css';
+import cn from 'classnames';
 
 type GroupsList = {
   label: string;
@@ -25,7 +26,12 @@ const RadioGroups = ({name, lists, onSubmit}: IRadioProps) => {
           <Fragment key={list.value}>
             <input defaultChecked={checkType === list.value} className={styles.hidden} type="radio" name={name} value={list.value} />
             <label htmlFor={list.label}>
-              <button type="submit" className={[styles.btn_radio, styles.sprite_img, `${checkType === list.value ? styles.btn_check : styles.btn_uncheck}`].join(' ')} onClick={() => handleCheckedValue(list.value)}>              
+              <button type="submit" className={
+                cn(styles.btn_radio, styles.sprite_img, {
+                  [styles.btn_check]: checkType === list.value,
+                  [styles.btn_uncheck]: !(checkType === list.value)
+                })
+                } onClick={() => handleCheckedValue(list.value)}>              
                 {list.label}
               </button>
             </label>

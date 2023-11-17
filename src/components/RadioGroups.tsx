@@ -1,6 +1,7 @@
 import { FormEvent, Fragment, useState } from "react";
 import styles from './radioGroups.module.css';
 import cn from 'classnames';
+import { Icon } from './Buttons';
 
 type GroupsList = {
   label: string;
@@ -24,17 +25,12 @@ const RadioGroups = ({name, lists, onSubmit}: IRadioProps) => {
       {lists.map((list) => {
         return (
           <Fragment key={list.value}>
-            <input defaultChecked={checkType === list.value} className={styles.hidden} type="radio" name={name} value={list.value} />
-            <label htmlFor={list.label}>
-              <button type="submit" className={
-                cn(styles.btn_radio, styles.sprite_img, {
-                  [styles.btn_check]: checkType === list.value,
-                  [styles.btn_uncheck]: !(checkType === list.value)
-                })
-                } onClick={() => handleCheckedValue(list.value)}>              
-                {list.label}
-              </button>
+            <label htmlFor={list.value}>
+              <input defaultChecked={checkType === list.value} className={styles.hidden} type="radio" name={name} value={list.value} />
             </label>
+            <div className={cn({[styles.fill_check]: checkType === list.value})}>
+              <Icon.Check label={list.label} onClick={() => handleCheckedValue(list.value)}/>
+            </div>
           </Fragment>
         )
       })}
@@ -42,4 +38,4 @@ const RadioGroups = ({name, lists, onSubmit}: IRadioProps) => {
   )
 }
 
-export default RadioGroups
+export default RadioGroups;

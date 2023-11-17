@@ -10,53 +10,6 @@
   color: #000000
 }
 
-.hidden_text {
-  position: absolute;
-  width: 0;
-  height: 0;
-  font-size: 0;
-  color: transparent;
-  background-color: transparent;
-  top : 0;
-  right: 0;
-}
-
-.sprite_img::before {
-  content: '';
-  display: block;
-  background: url("/stocksprite-1x.png") no-repeat;
-  background-size: 7.8rem 28.2rem;
-}
-
-.news,
-.unlike,
-.like {
-  padding: 0 0 0 1rem;
-  height: 100%;
-}
-.news::before {
-  width: 3.4rem;
-  height: 3.4rem;
-  background-position: -3.9rem -20.9rem;
-}
-
-.news:hover::before,
-.news:active::before {
-  background-position: -0.5rem -20.9rem;
-}
-
-.unlike::before {
-  width: 3.4rem;
-  height: 3.4rem;
-  background-position: -3.9rem -7.3rem;
-}
-
-.like::before {
-  width: 3.4rem;
-  height: 3.4rem;
-  background-position: -0.5rem -7.3rem;
-}
-
 .title {
   display: grid;
   width: 100%;
@@ -77,6 +30,16 @@
 .top .company span {
   padding: 1rem 0 1rem 0.5rem;
   font-weight: 550;
+}
+
+.icon_group {
+  display: flex;
+}
+
+.icon_group.like {
+  & button:last-child > svg {
+    fill: var(--fill-like-bgcolor);
+  }
 }
 
 .lower {

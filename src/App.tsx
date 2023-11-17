@@ -1,4 +1,7 @@
+import { FormEvent } from "react"
+import RadioGroups from "./components/RadioGroups"
 import StockInfo from "./components/StockInfo"
+import Navigtion from './components/Navigtion'
 
 const lists = [
   { label: "전체", value: "ALL" },
@@ -111,9 +114,15 @@ const items =  [     {
 }]
 
 function App() {
+
+  const test =(e:FormEvent) => {
+    e.preventDefault();
+  }
   return (
     <>
+      <RadioGroups name="stock_group" lists={lists} onSubmit={test}/>
       {items.map(item => <StockInfo key={item.srtnCd} {...item} />)}
+      <Navigtion />
     </>
   )
 }

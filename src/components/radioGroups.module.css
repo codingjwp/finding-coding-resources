@@ -1,35 +1,20 @@
 .groups {
   position: relative;
   display: flex;
+  & button {
+    font-weight: 550;
+  }
 }
+
+.fill_check {
+  & > button svg {
+    fill: var(--fill-bgcolor);
+  }
+}
+
 .hidden {
   position: absolute;
   right: 0;
   width: 0;
   height: 0;
-}
-
-.btn_radio {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 1rem;
-}
-
-.sprite_img::before {
-  content: '';
-  display: block;
-  background: url("/stocksprite-1x.png") no-repeat;
-  background-size: 7.8rem 28.2rem;
-}
-
-.btn_check::before {
-  width: 3.4rem;
-  height: 3.4rem;
-  background-position: -0.5rem -0.5rem;
-}
-.btn_uncheck::before {
-  width: 3.4rem;
-  height: 3.4rem;
-  background-position: -3.9rem -0.5rem;
 }

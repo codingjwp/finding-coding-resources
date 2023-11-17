@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styles from './stockInfo.module.css';
 import cn from 'classnames';
 import { useSetRecoilState } from 'recoil';
+import { Icon } from '../components/Buttons';
 import { toastState } from '../utils/RecoilProvider';
 
 type StockInfoData = {
@@ -72,15 +73,9 @@ const StockInfo = (props: StockInfoData) => {
             <span>{props.mrktCtg}</span>
             <span>{props.basDt} (기준)</span>
           </div>
-          <div>
-            <button className={cn(styles.sprite_img, styles.news)}>
-              <span className={styles.hidden_text}>news</span>
-            </button>
-            <button className={cn(styles.sprite_img, {
-              [styles.unlike]: !isLike,
-              [styles.like]: isLike})} onClick={handleClickLike}>
-              <span className={styles.hidden_text}>like</span>
-            </button>
+          <div className={cn(styles.icon_group, {[styles.like]: isLike})}>
+            <Icon.News />
+            <Icon.Like onClick={handleClickLike}/>
           </div>
         </div>
         <div className={styles.lower}>
@@ -109,3 +104,13 @@ const StockInfo = (props: StockInfoData) => {
 }
 
 export default StockInfo;
+
+
+{/* <button className={cn(styles.sprite_img, styles.news)}>
+<span className={styles.hidden_text}>news</span>
+</button>
+<button className={cn(styles.sprite_img, {
+[styles.unlike]: !isLike,
+[styles.like]: isLike})} onClick={handleClickLike}>
+<span className={styles.hidden_text}>like</span>
+</button> */}

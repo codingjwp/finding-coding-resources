@@ -1,0 +1,54 @@
+.navigation {
+  display: inline-block;
+  position: fixed;
+  right: 2rem;
+  bottom: 1rem;
+  z-index: 10;
+}
+.navigation > button {
+  background-color: var(--fill-hover-bgcolor);
+  border-radius: 50%;
+  & > svg {
+    fill: var(--fill-nav-bgcolor);
+  }
+}
+
+.list.show > button {
+  color: var(--fill-nav-bgcolor);
+  & > svg {
+    fill: var(--fill-nav-bgcolor);
+  }
+}
+.list.show > button:active,
+.list.show > button:hover {
+  color: var(--fill-hover-bgcolor);
+  & > svg {
+    fill: var(--fill-hover-bgcolor)
+  }
+}
+
+.show_cover {
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000066;
+}
+.menu > button > svg {
+  transform: rotate(45deg);
+  will-change: transform;
+  transition: transform 0.2s ease-in-out;
+}
+
+.list {
+  display: none;
+  width: 0;
+  height: 0;
+}
+.list.show {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  row-gap: 1rem;
+  height: 100%;
+}

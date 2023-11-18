@@ -1,7 +1,9 @@
-import { FormEvent } from "react"
+import { FormEvent, useEffect } from "react"
 import RadioGroups from "./components/RadioGroups"
 import StockInfo from "./components/StockInfo"
 import Navigtion from './components/Navigtion'
+import { stockInfoState } from "./utils/RecoilProvider";
+import { useRecoilState } from "recoil";
 
 const lists = [
   { label: "전체", value: "ALL" },
@@ -114,14 +116,17 @@ const items =  [     {
 }]
 
 function App() {
-
+  const [stockInfo, setStockInfo] = useRecoilState(stockInfoState);
+  useEffect(() => {
+    setStockInfo(items);
+  }, [setStockInfo])
   const test =(e:FormEvent) => {
     e.preventDefault();
   }
   return (
     <>
       <RadioGroups name="stock_group" lists={lists} onSubmit={test}/>
-      {items.map(item => <StockInfo key={item.srtnCd} {...item} />)}
+      {stockInfo.length > 0 && stockInfo.map(item => <StockInfo key={item.srtnCd} {...item} />)}
       <Navigtion />
     </>
   )

@@ -3,23 +3,7 @@ import styles from './stockInfo.module.css';
 import cn from 'classnames';
 import { useSetRecoilState } from 'recoil';
 import { Icon } from '../components/Buttons';
-import { toastState } from '../utils/RecoilProvider';
-
-type StockInfoData = {
-  basDt: string;  // 개시일자
-  srtnCd: string; // 코드
-  itmsNm: string; // 종목명
-  mrktCtg: string; // 시장구분
-  vs: string; // 전일 대비
-  fltRt: string; // 등락율
-  clpr: string; // 종가
-  mkp: string; // 시가
-  hipr: string; // 고가
-  lopr: string; // 저가
-  trqu: string; // 거래량
-  trPrc: string; // 거래대금
-  mrktTotAmt: string; // 시가총액
-};
+import { toastState, StockInfoData } from '../utils/RecoilProvider';
 
 type HasLike = {
   srtnCd: string;

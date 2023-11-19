@@ -1,5 +1,5 @@
-import { atom, selectorFamily, useRecoilState  } from 'recoil';
-import { useQuery } from '@tanstack/react-query';
+import { atom, selectorFamily, useSetRecoilState  } from 'recoil';
+import { useQuery, UseQueryOptions } from '@tanstack/react-query';
 
 type StockInfoData = {
   basDt: string;  // 개시일자
@@ -26,44 +26,57 @@ type PageNumData = {
     item: StockInfoData[]
   }
 }
-type LikeList = string[];
+type FilterData = 'ALL' | 'KOSPI' | 'KOSDAQ' | 'KODEX' ;
+type LikeType = 'BASE' | 'LIKE';
 
 export const stockInfoState = atom<StockInfoData[]>({
   key: 'stockInfoState',
   default: [],
 })
+export const filterData = atom<FilterData>({
+  key: 'filterState',
+  default: 'ALL',
+})
 
-export const stockInfoSelector = selectorFamily<StockInfoData[]>({
-  key: 'stockInfoSelector',
-  set: (info: StockInfoData[]) => ({set}, newValue) => {
-    const likeList: LikeList = JSON.parse(localStorage.getItem('likes') as string);
-    const newInfo = newValue.map((obj: StockInfoData) => {
-      
-      if (likeList) {
-        if (likeList.includes())
-      }
-      return {...obj, like: false}
+export const filterStockInfo = selectorFamily<StockInfoData[], LikeType>({
+  key: 'filterStockInfo',
+  get: (isLike) => ({get}) => {
+    const infos = get(stockInfoState);
+    const filters = get(filterData);
+    const newInfo = infos.filter((info: StockInfoData) => {
+      if (filters === 'ALL' && isLike === 'LIKE') return info.like === true;
+      else if (filters !== 'ALL' && isLike === 'BASE') return info.mrktCtg === filters;
+      else if (filters !== 'ALL' && isLike === 'LIKE') return info.mrktCtg === filters && info.like === true;
+      return true;
     })
+    return newInfo;
   }
 })
 
-export async function stockList() {
+export async function stockList(page: number) {
   try {
     const response = await fetch('test.json');
     if (!response.ok) throw new Error(`Network Error ${response.status}`);
     const jsonRes = await response.json();
-    const { numOfRows, pageNo, totalCount, items}: PageNumData = jsonRes.body;
+    const { numOfRows, pageNo, totalCount, items }: PageNumData = jsonRes.body;
     const item: StockInfoData[] = items?.item ?? [];
-    return {numOfRows, pageNo, totalCount, stockList: item};
+    return { numOfRows, pageNo, totalCount, item };
   }catch(e:unknown) {
     throw new Error(`Network Error ${((e)as Error).message}`);
   }
 }
 
-const useStockApi = (page: number) => {
-  const { data, error, isLoading, isFetching } = useQuery({
-    queryKey: ['stockApi'],
-    queryFn: stockList
-  });
+const useStockInfoApi = (page: number) => {
+  const setStockInfo = useSetRecoilState(stockInfoState);
 
+  const { error, isLoading } = useQuery({
+    queryKey: ['stockAPI'],
+    queryFn: async () => {
+      const data = await stockList(page);
+      setStockInfo(data.item);
+    },
+    staleTime: 1000 * 60 * 5,
+    gcTime: 1000 * 60 * 10
+  });
+  return {isLoading, error}
 }

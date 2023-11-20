@@ -15,7 +15,7 @@ const lists = [
 function App() {
   const [stockInfo, setStockInfo] = useRecoilState(stockInfoState);
   useEffect(() => {
-    setStockInfo(items);
+    // setStockInfo(items);
   }, [setStockInfo])
   const test =(e:FormEvent) => {
     e.preventDefault();

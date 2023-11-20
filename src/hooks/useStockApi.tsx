@@ -1,5 +1,5 @@
 import { atom, selectorFamily, useSetRecoilState  } from 'recoil';
-import { useQuery, UseQueryOptions } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 
 type StockInfoData = {
   basDt: string;  // 개시일자

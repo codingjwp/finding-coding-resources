@@ -1,18 +1,19 @@
 import { SVGProps } from 'react'
 
 export type IconNames =
-  | 'svelte-logo'
-  | 'nuxt-logo'
-  | 'recoil-logo'
-  | 'react-logo'
-  | 'redux-logo'
-  | 'vue-logo'
-  | 'next-logo'
-  | 'css-logo'
-  | 'js-logo'
-  | 'ts-logo'
-  | 'angular-logo'
-  | 'html-logo'
+  | 'svelte'
+  | 'nuxt'
+  | 'recoil'
+  | 'react'
+  | 'redux'
+  | 'vue'
+  | 'next'
+  | 'css'
+  | 'javascript'
+  | 'typescript'
+  | 'angular'
+  | 'html'
+  | 'chart'
 
 type IconProps = {
   name: IconNames
@@ -28,7 +29,7 @@ export default function Icon({
 }: IconProps) {
   if (children) {
     return (
-      <span className={`${childrenClassName}`}>
+      <span className={childrenClassName}>
         <Icon name={name} className={className} />
         {children}
       </span>
@@ -36,8 +37,8 @@ export default function Icon({
   }
 
   return (
-    <svg {...props} className={`${className}`}>
-      <use href={`assets/sprite_logo.svg#${name}`}></use>
+    <svg {...props} className={className}>
+      <use href={`/sprite_logo.svg#${name}`}></use>
     </svg>
   )
 }

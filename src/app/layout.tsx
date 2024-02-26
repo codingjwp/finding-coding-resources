@@ -5,7 +5,7 @@ import './globals.css'
 export const metadata: Metadata = {
   title: {
     template: '%s',
-    default: 'analytics dashboard',
+    default: 'Analytics',
   },
   description: 'Coding-related analytics dashboard ',
 }

@@ -13,10 +13,21 @@ a {
 }
 
 ul,
-ol {
+ol,
+menu {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+li::marker {
+  display: none;
 }
 
 button {
@@ -24,4 +35,14 @@ button {
   border-width: 0;
   border-color: transparent;
   cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  font-style: italic;
+  background-repeat: no-repeat;
+  background-size: cover;
+  shape-margin: 1.6rem;
 }

@@ -1,0 +1,292 @@
+{
+  "kind": "youtube#searchListResponse",
+  "etag": "FlVzPVY06Hvq-ByearYX-3BEjig",
+  "nextPageToken": "CAoQAA",
+  "regionCode": "KR",
+  "pageInfo": {
+    "totalResults": 174,
+    "resultsPerPage": 10
+  },
+  "items": [
+    {
+      "kind": "youtube#searchResult",
+      "etag": "-yuApPjhweled51MXkSpnsFaxyA",
+      "id": {
+        "kind": "youtube#channel",
+        "channelId": "UCpWAHyvsw6-Hd3FMcKIHGCA"
+      },
+      "snippet": {
+        "publishedAt": "2022-08-27T02:01:11Z",
+        "channelId": "UCpWAHyvsw6-Hd3FMcKIHGCA",
+        "title": "Lun Dev",
+        "description": "HTML CSS Javascript code tutorial, learning HTML, learning CSS, learning Javascript, get code free HTML CSS JAVASCRIPT, ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/LnD0yL5NAb8yvZu2d25qLZ-oAehUISz9tfe3aN36syGqTKbs4irbPeVUJfNlmVFRzel7KHV3-uo=s88-c-k-c0xffffffff-no-rj-mo"
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/LnD0yL5NAb8yvZu2d25qLZ-oAehUISz9tfe3aN36syGqTKbs4irbPeVUJfNlmVFRzel7KHV3-uo=s240-c-k-c0xffffffff-no-rj-mo"
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/LnD0yL5NAb8yvZu2d25qLZ-oAehUISz9tfe3aN36syGqTKbs4irbPeVUJfNlmVFRzel7KHV3-uo=s800-c-k-c0xffffffff-no-rj-mo"
+          }
+        },
+        "channelTitle": "Lun Dev",
+        "liveBroadcastContent": "none",
+        "publishTime": "2022-08-27T02:01:11Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "afujebwtlMY82HlMLGqiBdEGsz4",
+      "id": {
+        "kind": "youtube#channel",
+        "channelId": "UCyxny8lsaIIBN1EOi0fS8qQ"
+      },
+      "snippet": {
+        "publishedAt": "2018-09-15T22:15:36Z",
+        "channelId": "UCyxny8lsaIIBN1EOi0fS8qQ",
+        "title": "Code நண்பன்",
+        "description": "I feel there are less web development tutorials available in Tamil languages in Youtube. Through this channel I am planning to ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/ytc/AIf8zZQm-lrzES_dtyHMQAVcbo3e_GzFNxfRKsBc5AKq8A=s88-c-k-c0xffffffff-no-rj-mo"
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/ytc/AIf8zZQm-lrzES_dtyHMQAVcbo3e_GzFNxfRKsBc5AKq8A=s240-c-k-c0xffffffff-no-rj-mo"
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/ytc/AIf8zZQm-lrzES_dtyHMQAVcbo3e_GzFNxfRKsBc5AKq8A=s800-c-k-c0xffffffff-no-rj-mo"
+          }
+        },
+        "channelTitle": "Code நண்பன்",
+        "liveBroadcastContent": "none",
+        "publishTime": "2018-09-15T22:15:36Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "AKbrgfWao2oAlgqNQ-D_C5PsP3k",
+      "id": {
+        "kind": "youtube#channel",
+        "channelId": "UCyTx4EKui_QQSIqDAEUZXsQ"
+      },
+      "snippet": {
+        "publishedAt": "2020-07-19T07:40:56Z",
+        "channelId": "UCyTx4EKui_QQSIqDAEUZXsQ",
+        "title": "Simple javaScript",
+        "description": "Javscript простыми словами для начинающих; Изучение jquery библиотеки для Js; Практические задания по Js; Базовые ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/ytc/AIf8zZTW1ghFBIrHx2t1Ulg-AJMgA_htLmqs5kwa8NfV=s88-c-k-c0xffffffff-no-rj-mo"
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/ytc/AIf8zZTW1ghFBIrHx2t1Ulg-AJMgA_htLmqs5kwa8NfV=s240-c-k-c0xffffffff-no-rj-mo"
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/ytc/AIf8zZTW1ghFBIrHx2t1Ulg-AJMgA_htLmqs5kwa8NfV=s800-c-k-c0xffffffff-no-rj-mo"
+          }
+        },
+        "channelTitle": "Simple javaScript",
+        "liveBroadcastContent": "none",
+        "publishTime": "2020-07-19T07:40:56Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "1sdtSreEOlm1Wk1IDg3J5U7Yxb4",
+      "id": {
+        "kind": "youtube#channel",
+        "channelId": "UCKe8eM4b1zpiDrcnatrhyeg"
+      },
+      "snippet": {
+        "publishedAt": "2018-05-17T08:41:09Z",
+        "channelId": "UCKe8eM4b1zpiDrcnatrhyeg",
+        "title": "Реальный JavaScript",
+        "description": "Изучаем веб-ориентированное программирование. Стек: - Javascript - Typescript - Nodejs - SQL - ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/ytc/AIdro_kfsdrYqSRdz23-9arX3kpku97Z4kLh7ZqNWphu_w=s88-c-k-c0xffffffff-no-rj-mo"
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/ytc/AIdro_kfsdrYqSRdz23-9arX3kpku97Z4kLh7ZqNWphu_w=s240-c-k-c0xffffffff-no-rj-mo"
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/ytc/AIdro_kfsdrYqSRdz23-9arX3kpku97Z4kLh7ZqNWphu_w=s800-c-k-c0xffffffff-no-rj-mo"
+          }
+        },
+        "channelTitle": "Реальный JavaScript",
+        "liveBroadcastContent": "none",
+        "publishTime": "2018-05-17T08:41:09Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "lQX5TisnkmuWwSPdf5PyayidbhI",
+      "id": {
+        "kind": "youtube#channel",
+        "channelId": "UCcPt0Jg_yRZcPSYwOPORE6g"
+      },
+      "snippet": {
+        "publishedAt": "2015-04-21T06:17:52Z",
+        "channelId": "UCcPt0Jg_yRZcPSYwOPORE6g",
+        "title": "smashtheshell",
+        "description": "Here we will cover all about web design, ui/ux design frontend web development and workflow. I have created this channel to ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/ytc/AIf8zZTrBbfMAxWU-UT9KPfdmFAGp4uvz9uhg1K0beZDcA=s88-c-k-c0xffffffff-no-rj-mo"
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/ytc/AIf8zZTrBbfMAxWU-UT9KPfdmFAGp4uvz9uhg1K0beZDcA=s240-c-k-c0xffffffff-no-rj-mo"
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/ytc/AIf8zZTrBbfMAxWU-UT9KPfdmFAGp4uvz9uhg1K0beZDcA=s800-c-k-c0xffffffff-no-rj-mo"
+          }
+        },
+        "channelTitle": "smashtheshell",
+        "liveBroadcastContent": "none",
+        "publishTime": "2015-04-21T06:17:52Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "x5XluuEP9OjsJDatPvMVwjH1Xsc",
+      "id": {
+        "kind": "youtube#channel",
+        "channelId": "UCWgDuybHqTDeevvTkG9BjfQ"
+      },
+      "snippet": {
+        "publishedAt": "2022-09-27T15:15:31Z",
+        "channelId": "UCWgDuybHqTDeevvTkG9BjfQ",
+        "title": "5DCADE",
+        "description": "I post Javscript, Css and html contents.",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/E8CUdpJjT8cQeOxV2Nd4V6pKJ-4jTd56jP9rrqVFOlxFJB4Av264S429Hb0CrEqRnzpfX1dF=s88-c-k-c0xffffffff-no-rj-mo"
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/E8CUdpJjT8cQeOxV2Nd4V6pKJ-4jTd56jP9rrqVFOlxFJB4Av264S429Hb0CrEqRnzpfX1dF=s240-c-k-c0xffffffff-no-rj-mo"
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/E8CUdpJjT8cQeOxV2Nd4V6pKJ-4jTd56jP9rrqVFOlxFJB4Av264S429Hb0CrEqRnzpfX1dF=s800-c-k-c0xffffffff-no-rj-mo"
+          }
+        },
+        "channelTitle": "5DCADE",
+        "liveBroadcastContent": "none",
+        "publishTime": "2022-09-27T15:15:31Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "dvT5LI4LRxrwHC3S5TElWnRzjmQ",
+      "id": {
+        "kind": "youtube#channel",
+        "channelId": "UC1K8PU8Mv_bpzYzg--QMD5w"
+      },
+      "snippet": {
+        "publishedAt": "2017-03-31T06:07:00Z",
+        "channelId": "UC1K8PU8Mv_bpzYzg--QMD5w",
+        "title": "Nepali Javascript Tutorial Damak",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/ytc/AIf8zZTAsM97vbWEnabYKwQC0E1F0b68F8aRTG96pYBZ=s88-c-k-c0xffffffff-no-rj-mo"
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/ytc/AIf8zZTAsM97vbWEnabYKwQC0E1F0b68F8aRTG96pYBZ=s240-c-k-c0xffffffff-no-rj-mo"
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/ytc/AIf8zZTAsM97vbWEnabYKwQC0E1F0b68F8aRTG96pYBZ=s800-c-k-c0xffffffff-no-rj-mo"
+          }
+        },
+        "channelTitle": "Nepali Javascript Tutorial Damak",
+        "liveBroadcastContent": "upcoming",
+        "publishTime": "2017-03-31T06:07:00Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "RXvdrvm3k5zW85Ss5OqPQDxTa4E",
+      "id": {
+        "kind": "youtube#channel",
+        "channelId": "UCJxdEBSeXc5u3HdXTn6ro6Q"
+      },
+      "snippet": {
+        "publishedAt": "2011-09-30T16:31:11Z",
+        "channelId": "UCJxdEBSeXc5u3HdXTn6ro6Q",
+        "title": "Jayakumar Natarajan",
+        "description": "This channel is for knowing some unknown facts in JavaScript . You will face strange output in javascript some time in your work ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/ytc/AIf8zZSSeCkMPmkVymA2gWjWSGA2W6A153MLaiFGGOp_cA=s88-c-k-c0xffffffff-no-rj-mo"
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/ytc/AIf8zZSSeCkMPmkVymA2gWjWSGA2W6A153MLaiFGGOp_cA=s240-c-k-c0xffffffff-no-rj-mo"
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/ytc/AIf8zZSSeCkMPmkVymA2gWjWSGA2W6A153MLaiFGGOp_cA=s800-c-k-c0xffffffff-no-rj-mo"
+          }
+        },
+        "channelTitle": "Jayakumar Natarajan",
+        "liveBroadcastContent": "none",
+        "publishTime": "2011-09-30T16:31:11Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "tmtmFK7MKKYPurXiODMzemJgHtA",
+      "id": {
+        "kind": "youtube#channel",
+        "channelId": "UChWD0lOFgiQ8C_pB3Ldac9g"
+      },
+      "snippet": {
+        "publishedAt": "2019-05-20T20:22:35Z",
+        "channelId": "UChWD0lOFgiQ8C_pB3Ldac9g",
+        "title": "CSS CODER",
+        "description": "This Channel will provide you with the best Html Css And Javscript Tutorials! Main Goal: To help people find the right content ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/ytc/AIf8zZQqJQtPS1OtyFHWfjC1eadI4hUecsz7liUBmfIb=s88-c-k-c0xffffffff-no-rj-mo"
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/ytc/AIf8zZQqJQtPS1OtyFHWfjC1eadI4hUecsz7liUBmfIb=s240-c-k-c0xffffffff-no-rj-mo"
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/ytc/AIf8zZQqJQtPS1OtyFHWfjC1eadI4hUecsz7liUBmfIb=s800-c-k-c0xffffffff-no-rj-mo"
+          }
+        },
+        "channelTitle": "CSS CODER",
+        "liveBroadcastContent": "none",
+        "publishTime": "2019-05-20T20:22:35Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "onOJa55h0ZH5CoLPf0fyuj_iWho",
+      "id": {
+        "kind": "youtube#channel",
+        "channelId": "UC2irKGBdrN1bv9PtHyjT1Hw"
+      },
+      "snippet": {
+        "publishedAt": "2022-09-21T12:59:23Z",
+        "channelId": "UC2irKGBdrN1bv9PtHyjT1Hw",
+        "title": "Js Anand",
+        "description": "Hi Friend, I am Anandan , 5 years of experience in Frontend Development from Madurai , Tamilnadu. In this channel I am going to ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/PoeXbuy980hOkSPQa0fu9uFoF-psYEEI5zRLy6Y76M0toZVGrLAitHcYGpByO3kgL52voIEpMg=s88-c-k-c0xffffffff-no-rj-mo"
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/PoeXbuy980hOkSPQa0fu9uFoF-psYEEI5zRLy6Y76M0toZVGrLAitHcYGpByO3kgL52voIEpMg=s240-c-k-c0xffffffff-no-rj-mo"
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/PoeXbuy980hOkSPQa0fu9uFoF-psYEEI5zRLy6Y76M0toZVGrLAitHcYGpByO3kgL52voIEpMg=s800-c-k-c0xffffffff-no-rj-mo"
+          }
+        },
+        "channelTitle": "Js Anand",
+        "liveBroadcastContent": "none",
+        "publishTime": "2022-09-21T12:59:23Z"
+      }
+    }
+  ]
+}

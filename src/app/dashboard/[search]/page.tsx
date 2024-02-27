@@ -1,4 +1,10 @@
+import ChannelGroups from '@/components/channel-groups'
 import styles from '@/styles/dashboardPage.module.css'
+
 export default function DashBoardPage() {
-  return <div className={styles.test}>Dashboard Page</div>
+  return (
+    <>
+      <ChannelGroups />
+    </>
+  )
 }

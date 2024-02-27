@@ -27,7 +27,7 @@ export default function Navbar({ params }: NavbarProps) {
       >
         <span className={styles.hiddenHambuger}>대쉬보드 메뉴</span>
       </button>
-      <p
+      <h2
         className={`${styles.navbarTitle} ${styles.textTrans} ${!openMenu && styles.hidden}`}
       >
         <Icon
@@ -46,16 +46,16 @@ export default function Navbar({ params }: NavbarProps) {
         >
           &times;
         </button>
-      </p>
+      </h2>
       <ul
         className={`${styles.navbarList} ${styles.textTrans} ${!openMenu && styles.hidden}`}
       >
         {logoNames.map((item) => {
           if (item === params) return null
           return (
-            <Link key={item} href={item}>
-              <li>{item}</li>
-            </Link>
+            <li key={item}>
+              <Link href={item}>{item}</Link>
+            </li>
           )
         })}
       </ul>

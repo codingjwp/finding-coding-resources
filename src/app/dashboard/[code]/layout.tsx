@@ -6,9 +6,9 @@ import styles from '@/styles/dashboardPage.module.css'
 export function generateMetadata({
   params,
 }: {
-  params: { search: string }
+  params: { code: string }
 }): Metadata {
-  const dashboard = params.search.toUpperCase()
+  const dashboard = params.code.toUpperCase()
   return {
     title: `${dashboard} | Dashboard`,
   }
@@ -19,11 +19,11 @@ export default function DashboardLayout({
   params,
 }: {
   children: ReactNode
-  params: { search: string }
+  params: { code: string }
 }) {
   return (
     <main className={styles.dashboardLayout}>
-      <Navbar params={params.search} />
+      <Navbar params={params.code} />
       {children}
     </main>
   )

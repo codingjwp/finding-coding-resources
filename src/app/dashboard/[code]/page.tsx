@@ -1,5 +1,6 @@
-import ChannelGroups from '@/components/channel-groups'
-// import styles from '@/styles/dashboardPage.module.css'
+import { ErrorMsg, ChannelsInfo, VideosInfo } from 'APITypes'
+
+export const revalidate = 0
 
 type DashboardParams = {
   params: {
@@ -7,16 +8,32 @@ type DashboardParams = {
   }
 }
 
-async function getChannelInfo(code: string) {
-  const res = await fetch(`${process.env.API_URL}/api/channel?code=${code}`)
+async function getDashBoard(id: string) {
+  try {
+    const res = await fetch(`http://localhost:3000/api/channel/${id}`)
+    if (!res.ok) {
+      const error = (await res.json()) as ErrorMsg
+      throw error
+    }
+    const data = (await res.json()) as {
+      mainDescription: ChannelsInfo
+      view: VideosInfo
+      rating: VideosInfo
+      latest: VideosInfo
+    }
+    return data
+  } catch (error: unknown) {
+    throw error as Error
+  }
 }
 
 export default async function DashBoardPage({ params }: DashboardParams) {
-  await getChannelInfo(params.code)
-
+  const { mainDescription, view, rating, latest } = await getDashBoard(
+    params.code,
+  )
   return (
-    <>
-      <ChannelGroups />
-    </>
+    <section style={{ color: 'white', fontSize: '2rem' }}>
+      {JSON.stringify(mainDescription)}
+    </section>
   )
 }

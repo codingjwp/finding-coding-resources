@@ -1,21 +1,21 @@
 'use client'
-
-import { logoNames } from '@/utils/logoName'
-import Icon from '@/components/icon'
+import Icon from './icon'
 import styles from '@/styles/navbar.module.css'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
+import { NavigationTypes } from 'APITypes'
 
 type NavbarProps = {
-  params: string
+  title: string
+  navGroups: NavigationTypes[]
 }
 
-export default function Navbar({ params }: NavbarProps) {
+export default function Navbar({ title, navGroups }: NavbarProps) {
   const [openMenu, setOpenMenu] = useState(false)
   const handleClickMenu = () => {
     setOpenMenu((prevOpen) => !prevOpen)
   }
-
   return (
     <nav className={`${styles.navbar} ${!openMenu && styles.navbarBaseHeight}`}>
       <button
@@ -35,7 +35,7 @@ export default function Navbar({ params }: NavbarProps) {
           className={`${styles.navbarTitlePosition} ${styles.iconSize}`}
           childrenClassName={styles.navbarTitleIcon}
         >
-          {params}
+          {title}
         </Icon>
         <button
           className={`${styles.navbarClose} ${styles.iconSize}`}
@@ -50,11 +50,14 @@ export default function Navbar({ params }: NavbarProps) {
       <ul
         className={`${styles.navbarList} ${styles.textTrans} ${!openMenu && styles.hidden}`}
       >
-        {logoNames.map((item) => {
-          if (item === params) return null
+        {navGroups.map((navi) => {
+          if (navi.customUrl === title || navi.title === title) return null
           return (
-            <li key={item}>
-              <Link href={item}>{item}</Link>
+            <li key={navi.id}>
+              <Image src={navi.url} width={32} height={32} alt={navi.title} />
+              <Link href={navi.id}>
+                {navi.customUrl === '' ? navi.title : navi.customUrl}
+              </Link>
             </li>
           )
         })}

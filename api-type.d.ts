@@ -23,6 +23,24 @@ declare module 'APITypes' {
       videoCount: string
     }
   }
+
+  export type BannerTypes = {
+    id: string
+    title: string
+    url: string
+    width: string
+    height: string
+  }
+
+  export type NavigationTypes = {
+    id: string
+    title: string
+    customUrl: string
+    url: string
+    width: string
+    height: string
+  }
+
   export type VideosInfo = {
     channelId: string
     videoInfo: {
@@ -34,5 +52,12 @@ declare module 'APITypes' {
         commentCount: string
       }
     }[]
+  }
+
+  export type ErrorMsg = {
+    status: number
+    error: {
+      message: string
+    }
   }
 }

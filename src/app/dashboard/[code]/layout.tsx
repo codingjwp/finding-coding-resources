@@ -2,28 +2,43 @@ import { ReactNode } from 'react'
 import Navbar from '@/components/navbar'
 import type { Metadata } from 'next'
 import styles from '@/styles/dashboardPage.module.css'
+import { ErrorMsg, NavigationTypes } from 'APITypes'
 
-export function generateMetadata({
-  params,
-}: {
-  params: { code: string }
-}): Metadata {
-  const dashboard = params.code.toUpperCase()
+export function generateMetadata() {
   return {
-    title: `${dashboard} | Dashboard`,
+    title: 'Channels | Dashboard',
   }
 }
 
-export default function DashboardLayout({
+async function getNavi() {
+  try {
+    const res = await fetch('http://localhost:3000/api/navi')
+    if (!res.ok) {
+      const error = (await res.json()) as ErrorMsg
+      throw error
+    }
+    const data = (await res.json()) as NavigationTypes[]
+    return data
+  } catch (error: unknown) {
+    throw error as Error
+  }
+}
+
+export default async function DashboardLayout({
   children,
   params,
 }: {
   children: ReactNode
   params: { code: string }
 }) {
+  const navis = await getNavi()
+  const channel = navis.find((navi) => navi.id === params.code)
   return (
     <main className={styles.dashboardLayout}>
-      <Navbar params={params.code} />
+      <Navbar
+        title={channel!.customUrl === '' ? channel!.title : channel!.customUrl}
+        navGroups={navis}
+      />
       {children}
     </main>
   )

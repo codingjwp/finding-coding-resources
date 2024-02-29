@@ -1,4 +1,6 @@
 import { ErrorMsg, ChannelsInfo, VideosInfo } from 'APITypes'
+import Image from 'next/image'
+import styles from '@/styles/dashboardPage.module.css'
 
 export const revalidate = 0
 
@@ -27,13 +29,46 @@ async function getDashBoard(id: string) {
   }
 }
 
+function dateFommater(date: string) {
+  const localDate = new Date(date)
+  return localDate.toLocaleDateString('ko-Kr')
+}
+
 export default async function DashBoardPage({ params }: DashboardParams) {
   const { mainDescription, view, rating, latest } = await getDashBoard(
     params.code,
   )
   return (
-    <section style={{ color: 'white', fontSize: '2rem' }}>
-      {JSON.stringify(mainDescription)}
+    <section className={styles.dashboardSection}>
+      {mainDescription && (
+        <>
+          <div className={`${styles.dashboardCover} ${styles.itemPadding}`}>
+            <Image
+              className={styles.dashboardImage}
+              src={mainDescription.thumbnails.default.url}
+              width={64}
+              height={64}
+              alt={mainDescription.title}
+            />
+            <h3>{mainDescription.customUrl || '@userNotFound'}</h3>
+          </div>
+          <article className={`${styles.dashboardMain} ${styles.itemPadding}`}>
+            <strong className={styles.dashboardTitle}>
+              {mainDescription.title}
+            </strong>
+            <p>
+              생성일자 :{' '}
+              <time>{dateFommater(mainDescription.publishedAt)}</time>
+            </p>
+            <details>
+              <summary>채널설명</summary>
+              <pre className={`${styles.dashboardDescript}`}>
+                {mainDescription.description}
+              </pre>
+            </details>
+          </article>
+        </>
+      )}
     </section>
   )
 }

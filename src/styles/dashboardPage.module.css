@@ -1,3 +1,42 @@
 .dashboardLayout {
-  margin-top: 5rem;
+  margin: 7rem auto;
+}
+
+.dashboardSection {
+  color: white;
+}
+
+.dashboardCover {
+  display: flex;
+  column-gap: 1.5rem;
+  place-items: center;
+  font-size: 1.4rem;
+}
+
+.dashboardImage {
+  border-radius: 50%;
+}
+
+.dashboardMain {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  background-color: #2f2f2f;
+}
+
+.dashboardTitle {
+  font-size: 2rem;
+}
+
+.dashboardDescript {
+  width: 100%;
+  height: 7.2rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  white-space: pre-wrap;
+}
+
+.itemPadding {
+  padding: 1rem 1rem;
 }

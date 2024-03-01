@@ -14,6 +14,7 @@ import {
 } from 'd3'
 import { useEffect, useRef, useState } from 'react'
 import { VideosInfo } from 'APITypes'
+import styles from '@/styles/bargraph.module.css'
 
 type BarGraphProps = {
   titie: string
@@ -71,11 +72,10 @@ export default function BarGraph({ titie, barData }: BarGraphProps) {
     // x축 작성
     svg
       .append('g')
+      .classed(styles.axis, true)
       .attr('transform', `translate(0, ${chartHeight})`)
       .call(axisBottom(xScale).tickSize(0).tickPadding(8))
       .selectAll('text')
-      .attr('font-size', '14px')
-      .attr('fill', 'white')
 
     const leftYMax = Math.max(
       ...data.map((item) => (item.key === 'viewCount' ? item.value : 0)),
@@ -94,6 +94,7 @@ export default function BarGraph({ titie, barData }: BarGraphProps) {
     // y축 좌우 추가
     svg
       .append('g')
+      .classed(styles.axis, true)
       .call(
         axisLeft(yLeftScale)
           .ticks(5)
@@ -102,11 +103,10 @@ export default function BarGraph({ titie, barData }: BarGraphProps) {
           .tickFormat(fomater),
       )
       .selectAll('text')
-      .attr('font-size', '14px')
-      .attr('fill', 'white')
 
     svg
       .append('g')
+      .classed(styles.axis, true)
       .attr('transform', `translate(${chartWidth}, 0)`)
       .call(
         axisRight(yRightScale)
@@ -116,8 +116,6 @@ export default function BarGraph({ titie, barData }: BarGraphProps) {
           .tickFormat(fomater),
       )
       .selectAll('text')
-      .attr('font-size', '14px')
-      .attr('fill', 'white')
 
     const keys = Array.from(new Set(data.map((item) => item.key)))
     const xSubGroups = scaleBand()
@@ -139,13 +137,7 @@ export default function BarGraph({ titie, barData }: BarGraphProps) {
 
     const tooltip = select(toolTipRef.current)
       .attr('id', 'chart_tooltip')
-      .style('opacity', 0)
-      .style('background-color', '#f9f9f9')
-      .style('border', 'solid')
-      .style('border-width', '1px')
-      .style('border-radius', '5px')
-      .style('padding', '10px')
-      .style('position', 'absolute')
+      .classed(styles.toolTip, true)
 
     const mouseOver = (event: MouseEvent) => {
       tooltip.style('opacity', 0.8)

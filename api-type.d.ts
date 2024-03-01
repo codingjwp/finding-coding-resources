@@ -48,7 +48,6 @@ declare module 'APITypes' {
       statistics: {
         viewCount: string
         likeCount: string
-        favoriteCount: string
         commentCount: string
       }
     }[]

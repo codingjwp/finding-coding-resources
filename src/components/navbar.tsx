@@ -27,9 +27,7 @@ export default function Navbar({ title, navGroups }: NavbarProps) {
       >
         <span className={styles.hiddenHambuger}>대쉬보드 메뉴</span>
       </button>
-      <h2
-        className={`${styles.navbarTitle} ${styles.textTrans} ${!openMenu && styles.hidden}`}
-      >
+      <h2 className={`${styles.navbarTitle} ${!openMenu && styles.hidden}`}>
         <Icon
           name="chart"
           className={`${styles.navbarTitlePosition} ${styles.iconSize}`}
@@ -47,9 +45,7 @@ export default function Navbar({ title, navGroups }: NavbarProps) {
           &times;
         </button>
       </h2>
-      <ul
-        className={`${styles.navbarList} ${styles.textTrans} ${!openMenu && styles.hidden}`}
-      >
+      <ul className={`${styles.navbarList} ${!openMenu && styles.hidden}`}>
         {navGroups.map((navi) => {
           if (navi.customUrl === title || navi.title === title) return null
           return (

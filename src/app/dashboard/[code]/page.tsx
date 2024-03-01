@@ -1,6 +1,7 @@
 import { ErrorMsg, ChannelsInfo, VideosInfo } from 'APITypes'
 import Image from 'next/image'
 import styles from '@/styles/dashboardPage.module.css'
+import BarGraph from '@/components/bargraph'
 
 export const revalidate = 0
 
@@ -39,36 +40,47 @@ export default async function DashBoardPage({ params }: DashboardParams) {
     params.code,
   )
   return (
-    <section className={styles.dashboardSection}>
-      {mainDescription && (
-        <>
-          <div className={`${styles.dashboardCover} ${styles.itemPadding}`}>
-            <Image
-              className={styles.dashboardImage}
-              src={mainDescription.thumbnails.default.url}
-              width={64}
-              height={64}
-              alt={mainDescription.title}
-            />
-            <h3>{mainDescription.customUrl || '@userNotFound'}</h3>
-          </div>
-          <article className={`${styles.dashboardMain} ${styles.itemPadding}`}>
-            <strong className={styles.dashboardTitle}>
-              {mainDescription.title}
-            </strong>
-            <p>
-              생성일자 :{' '}
-              <time>{dateFommater(mainDescription.publishedAt)}</time>
-            </p>
-            <details>
-              <summary>채널설명</summary>
-              <pre className={`${styles.dashboardDescript}`}>
-                {mainDescription.description}
-              </pre>
-            </details>
-          </article>
-        </>
-      )}
-    </section>
+    <>
+      <section className={styles.dashboardSection}>
+        {mainDescription && (
+          <>
+            <div className={`${styles.dashboardCover} ${styles.itemPadding}`}>
+              <Image
+                className={styles.coverImage}
+                src={mainDescription.thumbnails.default.url}
+                width={64}
+                height={64}
+                alt={mainDescription.title}
+              />
+              <h3 className={styles.coverUser}>
+                {mainDescription.customUrl || '@userNotFound'}
+              </h3>
+            </div>
+            <article
+              className={`${styles.dashboardDescription} ${styles.itemPadding}`}
+            >
+              <strong className={styles.descriptionTitle}>
+                {mainDescription.title}
+              </strong>
+              <p>
+                생성일자 :{' '}
+                <time>{dateFommater(mainDescription.publishedAt)}</time>
+              </p>
+              <details>
+                <summary>채널설명</summary>
+                <pre className={`${styles.descriptionDetail}`}>
+                  {mainDescription.description}
+                </pre>
+              </details>
+            </article>
+          </>
+        )}
+      </section>
+      <section className={styles.dashboardBarChart}>
+        <BarGraph titie="조회순" barData={view} />
+        <BarGraph titie="추천순" barData={rating} />
+        <BarGraph titie="댓글순" barData={latest} />
+      </section>
+    </>
   )
 }

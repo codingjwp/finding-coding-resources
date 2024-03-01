@@ -4,8 +4,8 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #1f1f1f;
-  color: #ffffff;
+  background-color: var(--black-200-color);
+  color: var(--white-100-color);
 }
 
 .navbarBaseHeight {
@@ -29,7 +29,7 @@
   height: 0.3rem;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #ffffff;
+  background-color: var(--white-100-color);
 }
 
 .navbarHambuger::before {
@@ -51,7 +51,7 @@
 
 .navbarClose {
   font-size: 4rem;
-  color: #ffffff;
+  color: var(--white-100-color);
 }
 
 .navbarTitleIcon {
@@ -64,19 +64,29 @@
   word-break: break-word;
 }
 .navbarTitlePosition {
-  fill: #ffffff;
+  fill: var(--white-100-color);
   min-width: 4.8rem;
   min-height: 4.8rem;
+}
+
+.navbarTitle,
+.navbarList {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
 }
 
 .navbarList {
   font-size: 2rem;
 }
 
+.navbarList a,
+.hidden,
+.hiddenHambuger {
+  overflow: hidden;
+}
+
 .navbarList a {
   min-width: 20rem;
-  overflow: hidden;
-  color: #ffffff;
   white-space: no-wrap;
   text-overflow: ellipsis;
 }
@@ -95,12 +105,11 @@
 .navbarHambuger:hover,
 .navbarList li:hover,
 .navbarClose:hover {
-  background-color: #3c3c3c;
+  background-color: var(--black-400-color);
   border-radius: 0.3rem;
 }
 
 .hidden {
-  overflow: hidden;
   height: 0;
   margin: 0;
   padding: 0;
@@ -112,14 +121,8 @@
   height: 0.3rem;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #ffffff;
-  overflow: hidden;
+  background-color: var(--white-100-color);
   white-space: nowrap;
-}
-
-.textTrans {
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
 }
 
 .iconSize {

@@ -3,7 +3,7 @@
 }
 
 .dashboardSection {
-  color: white;
+  color: var(--white-100-color);
 }
 
 .dashboardCover {
@@ -13,28 +13,44 @@
   font-size: 1.4rem;
 }
 
-.dashboardImage {
+.coverImage {
   border-radius: 50%;
 }
 
-.dashboardMain {
-  font-size: 1.5rem;
-  margin: 1rem 0;
-  background-color: #2f2f2f;
+.coverUser,
+.descriptionDetail,
+.dashboardBarChart {
+  width: 100%;
 }
 
-.dashboardTitle {
+.coverUser {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.dashboardDescription {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  background-color: var(--black-300-color);
+}
+
+.descriptionTitle {
   font-size: 2rem;
 }
 
-.dashboardDescript {
-  width: 100%;
+.descriptionDetail {
   height: 7.2rem;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
   overflow: hidden;
   white-space: pre-wrap;
+}
+
+.dashboardBarChart {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
 }
 
 .itemPadding {

@@ -20,7 +20,7 @@ async function getBarChart(id: string) {
   }
 }
 
-export default async function ChartGroups({ id }: { id: string }) {
+export default async function ChannelChartGroups({ id }: { id: string }) {
   const { view, rating, latest } = await getBarChart(id)
 
   return (

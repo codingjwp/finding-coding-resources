@@ -23,20 +23,42 @@
   word-break: break-all;
 }
 
+.dashboardSection > table,
 .dashboardSection > div > h3,
 .descriptionDetail,
 .dashboardBarChart {
   width: 100%;
 }
 
+.dashboardSection > table {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.dashboardSection > table > thead tr > th {
+  background-color: #7f39fb;
+  border-radius: 0.6rem;
+}
+
+.dashboardSection > table > tbody tr > td {
+  background-color: var(--black-300-color);
+  border-radius: 0.6rem;
+}
+
+.dashboardSection > table > thead tr > th,
+.dashboardSection > table > tbody tr > td {
+  padding: 1rem;
+}
+
+.dashboardSection > table,
+.descriptionTitle {
+  font-size: 2rem;
+}
+
 .dashboardDescription {
   font-size: 1.5rem;
   margin: 1rem 0;
   background-color: var(--black-300-color);
-}
-
-.descriptionTitle {
-  font-size: 2rem;
 }
 
 .descriptionDetail {
@@ -54,6 +76,6 @@
 }
 
 .dashboardSection > div,
-.itemPadding {
+.dashboardDescription {
   padding: 1rem 1rem;
 }

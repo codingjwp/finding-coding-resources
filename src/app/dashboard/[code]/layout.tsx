@@ -1,6 +1,5 @@
 import { ReactNode } from 'react'
 import Navbar from '@/components/navbar'
-import type { Metadata } from 'next'
 import styles from '@/styles/dashboardPage.module.css'
 import { ErrorMsg, NavigationTypes } from 'APITypes'
 

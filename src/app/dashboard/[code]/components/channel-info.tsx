@@ -1,7 +1,8 @@
 import { ErrorMsg, ChannelsInfo } from 'APITypes'
-import Image from 'next/image'
 import styles from '@/styles/dashboardPage.module.css'
 import Avatar from '@/components/avatar'
+import ChannelSatistics from './channel-statistics'
+import ChannelDescription from './channel-description'
 
 async function getDashBoard(id: string) {
   try {
@@ -19,11 +20,6 @@ async function getDashBoard(id: string) {
 
 export default async function ChannelInfo({ id }: { id: string }) {
   const { mainDescription } = await getDashBoard(id)
-  function dateFommater(date: string) {
-    const localDate = new Date(date)
-    return localDate.toLocaleDateString('ko-Kr')
-  }
-
   return (
     <section className={styles.dashboardSection}>
       {mainDescription && (
@@ -38,23 +34,12 @@ export default async function ChannelInfo({ id }: { id: string }) {
             }}
             naming={mainDescription.customUrl || '@userNotFound'}
           />
-          <article
-            className={`${styles.dashboardDescription} ${styles.itemPadding}`}
-          >
-            <strong className={styles.descriptionTitle}>
-              {mainDescription.title}
-            </strong>
-            <p>
-              생성일자 :{' '}
-              <time>{dateFommater(mainDescription.publishedAt)}</time>
-            </p>
-            <details>
-              <summary>채널설명</summary>
-              <pre className={`${styles.descriptionDetail}`}>
-                {mainDescription.description}
-              </pre>
-            </details>
-          </article>
+          <ChannelSatistics {...mainDescription.statistics} />
+          <ChannelDescription
+            title={mainDescription.title}
+            publishedAt={mainDescription.publishedAt}
+            description={mainDescription.description}
+          />
         </>
       )}
     </section>

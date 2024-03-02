@@ -2,6 +2,8 @@ import { ErrorMsg, ChannelsInfo, VideosInfo } from 'APITypes'
 import Image from 'next/image'
 import styles from '@/styles/dashboardPage.module.css'
 import BarGraph from '@/components/bargraph'
+import { Suspense } from 'react'
+import ChartSkeleton from '@/components/chart-skeleton'
 
 export const revalidate = 0
 
@@ -76,11 +78,13 @@ export default async function DashBoardPage({ params }: DashboardParams) {
           </>
         )}
       </section>
-      <section className={styles.dashboardBarChart}>
-        <BarGraph titie="조회순" barData={view} />
-        <BarGraph titie="추천순" barData={rating} />
-        <BarGraph titie="댓글순" barData={latest} />
-      </section>
+      <Suspense fallback={<ChartSkeleton />}>
+        <section className={styles.dashboardBarChart}>
+          <BarGraph titie="조회순" barData={view} />
+          <BarGraph titie="추천순" barData={rating} />
+          <BarGraph titie="댓글순" barData={latest} />
+        </section>
+      </Suspense>
     </>
   )
 }

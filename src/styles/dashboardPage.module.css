@@ -6,27 +6,27 @@
   color: var(--white-100-color);
 }
 
-.dashboardCover {
+.dashboardSection > div {
   display: flex;
   column-gap: 1.5rem;
   place-items: center;
   font-size: 1.4rem;
 }
 
-.coverImage {
+.dashboardSection > div > img {
   border-radius: 50%;
 }
 
-.coverUser,
-.descriptionDetail,
-.dashboardBarChart {
-  width: 100%;
-}
-
-.coverUser {
+.dashboardSection > div > h3 {
   margin: 0;
   white-space: pre-wrap;
   word-break: break-all;
+}
+
+.dashboardSection > div > h3,
+.descriptionDetail,
+.dashboardBarChart {
+  width: 100%;
 }
 
 .dashboardDescription {
@@ -53,6 +53,7 @@
   grid-template-rows: repeat(3, 1fr);
 }
 
+.dashboardSection > div,
 .itemPadding {
   padding: 1rem 1rem;
 }

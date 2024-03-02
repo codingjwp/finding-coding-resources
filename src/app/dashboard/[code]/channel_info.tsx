@@ -1,6 +1,7 @@
 import { ErrorMsg, ChannelsInfo } from 'APITypes'
 import Image from 'next/image'
 import styles from '@/styles/dashboardPage.module.css'
+import Avatar from '@/components/avatar'
 
 async function getDashBoard(id: string) {
   try {
@@ -27,18 +28,16 @@ export default async function ChannelInfo({ id }: { id: string }) {
     <section className={styles.dashboardSection}>
       {mainDescription && (
         <>
-          <div className={`${styles.dashboardCover} ${styles.itemPadding}`}>
-            <Image
-              className={styles.coverImage}
-              src={mainDescription.thumbnails.default.url}
-              width={64}
-              height={64}
-              alt={mainDescription.title}
-            />
-            <h3 className={styles.coverUser}>
-              {mainDescription.customUrl || '@userNotFound'}
-            </h3>
-          </div>
+          <Avatar
+            type="title"
+            avatarImg={{
+              url: mainDescription.thumbnails.default.url,
+              width: 64,
+              height: 64,
+              alt: mainDescription.title,
+            }}
+            naming={mainDescription.customUrl || '@userNotFound'}
+          />
           <article
             className={`${styles.dashboardDescription} ${styles.itemPadding}`}
           >

@@ -1,7 +1,6 @@
 import styles from '@/styles/rootPage.module.css'
-import Link from 'next/link'
-import Image from 'next/image'
 import { BannerTypes, ErrorMsg } from 'APITypes'
+import Avatar from '@/components/avatar'
 
 export const revalidate = 0
 
@@ -19,30 +18,25 @@ async function getBanners() {
   }
 }
 
-export default async function Home() {
+export default async function RootPage() {
   const banners = await getBanners()
   return (
     <main className={styles.rootMain}>
       {banners &&
-          banners.map((banner) => {
-            return (
-              <Link
-                className={styles.rootMainBanner}
-                key={banner.id}
-                href={`/dashboard/${banner.id}`}
-              >
-                <Image
-                  className={styles.bannerImage}
-                  src={banner.url}
-                  width={Number(banner.width)}
-                  height={Number(banner.height)}
-                  alt={banner.title}
-                  priority={true}
-                />
-                <span className={styles.rootMainContext}>{banner.title}</span>
-              </Link>
-            )
-          })}
+        banners.map((banner) => (
+          <Avatar
+            key={banner.id}
+            type="banner"
+            avatarImg={{
+              url: banner.url,
+              width: +banner.width,
+              height: +banner.height,
+              alt: banner.title,
+            }}
+            href={`/dashboard/${banner.id}`}
+            naming={banner.title}
+          />
+        ))}
     </main>
   )
 }

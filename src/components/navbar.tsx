@@ -1,10 +1,10 @@
 'use client'
+
 import Icon from './icon'
 import styles from '@/styles/navbar.module.css'
-import Link from 'next/link'
-import Image from 'next/image'
 import { useState } from 'react'
 import { NavigationTypes } from 'APITypes'
+import Avatar from './avatar'
 
 type NavbarProps = {
   title: string
@@ -50,10 +50,17 @@ export default function Navbar({ title, navGroups }: NavbarProps) {
           if (navi.customUrl === title || navi.title === title) return null
           return (
             <li key={navi.id}>
-              <Image src={navi.url} width={32} height={32} alt={navi.title} />
-              <Link href={navi.id}>
-                {navi.customUrl === '' ? navi.title : navi.customUrl}
-              </Link>
+              <Avatar
+                type="link"
+                href={navi.id}
+                avatarImg={{
+                  url: navi.url,
+                  width: 32,
+                  height: 32,
+                  alt: navi.title,
+                }}
+                naming={navi.customUrl === '' ? navi.title : navi.customUrl}
+              />
             </li>
           )
         })}

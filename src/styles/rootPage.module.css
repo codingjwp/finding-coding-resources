@@ -7,7 +7,7 @@
   margin: 3rem auto;
 }
 
-.rootMainBanner {
+.rootMain a {
   display: flex;
   flex-direction: column;
   place-items: center;
@@ -19,12 +19,17 @@
   background-color: var(--white-100-color);
 }
 
-.rootMainBanner:hover,
-.rootMainBanner:active {
+.rootMain a:hover,
+.rootMain a:active {
   opacity: 1;
 }
 
-.rootMainContext {
+.rootMain img {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.rootMain span {
   width: 100%;
   color: var(--black-200-color);
   font-size: 1.4rem;
@@ -34,9 +39,4 @@
   text-transform: uppercase;
   white-space: pre-wrap;
   word-break: break-word;
-}
-
-.bannerImage {
-  object-fit: cover;
-  border-radius: 50%;
 }

@@ -2,7 +2,7 @@ import styles from '@/styles/rootPage.module.css'
 import { BannerTypes, ErrorMsg } from 'APITypes'
 import Avatar from '@/components/avatar'
 
-export const revalidate = 0
+export const revalidate = 1000 * 60 * 60 * 24
 
 async function getBanners() {
   try {

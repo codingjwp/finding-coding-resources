@@ -4,7 +4,7 @@ import ChannelInfoSkeleton from '@/components/channel-info-skeleton'
 import ChannelInfo from './components/channel-info'
 import ChannelChartGroups from './components/channel-chart-groups'
 
-export const revalidate = 0
+export const revalidate = 1000 * 60 * 60 * 24
 
 type DashboardParams = {
   params: {

@@ -10,8 +10,6 @@ export default function ChannelYoutube({ videoId }: ChannelYoutubeProps) {
       <iframe
         className={styles.youtubeVideo}
         src={`${process.env.YOUTUBE_IFRAME_URL}${videoId}`}
-        data-cookiescript="accepted"
-        data-cookiecategory="functionality"
         title="YouTube video player"
         allowFullScreen
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

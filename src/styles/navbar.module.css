@@ -6,6 +6,7 @@
   width: 100%;
   background-color: var(--black-200-color);
   color: var(--white-100-color);
+  z-index: 10;
 }
 
 .navbarBaseHeight {

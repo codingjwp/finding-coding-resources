@@ -1,0 +1,16 @@
+.youtubeContainer {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.youtubeVideo {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 90%;
+  height: calc(100% - 2rem);
+  transform: translateX(-50%);
+}

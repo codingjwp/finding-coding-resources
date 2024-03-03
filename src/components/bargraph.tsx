@@ -48,7 +48,6 @@ export default function BarGraph({ titie, barData }: BarGraphProps) {
         ? 280
         : reSize! - margin.right - margin.left
     // 차트 높이
-    console.log(chartWidth)
     const chartHeight = 260 - margin.top - margin.bottom
 
     const svg = select(divRef.current)

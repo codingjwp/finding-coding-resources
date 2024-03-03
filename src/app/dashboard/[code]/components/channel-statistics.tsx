@@ -9,6 +9,10 @@ export default function ChannelSatistics({
   subscriberCount,
   videoCount,
 }: ChannelSatisticsProps) {
+  const numberCommaFormeter = (number: number) => {
+    return number.toLocaleString('ko-Kr')
+  }
+
   return (
     <table>
       <thead>
@@ -20,9 +24,9 @@ export default function ChannelSatistics({
       </thead>
       <tbody>
         <tr>
-          <td>{subscriberCount}</td>
-          <td>{viewCount}</td>
-          <td>{videoCount}</td>
+          <td>{numberCommaFormeter(+subscriberCount)}</td>
+          <td>{numberCommaFormeter(+viewCount)}</td>
+          <td>{numberCommaFormeter(+videoCount)}</td>
         </tr>
       </tbody>
     </table>

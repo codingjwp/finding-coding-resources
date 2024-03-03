@@ -43,17 +43,21 @@ export default function BarGraph({ titie, barData }: BarGraphProps) {
     select(divRef.current).selectAll('*').remove()
     // margin값
     const margin = { top: 10, bottom: 10, right: 10, left: 10 }
-    const chartWidth = reSize! - margin.right - margin.left
+    const chartWidth =
+      reSize! - margin.right - margin.left < 280
+        ? 280
+        : reSize! - margin.right - margin.left
     // 차트 높이
+    console.log(chartWidth)
     const chartHeight = 260 - margin.top - margin.bottom
 
     const svg = select(divRef.current)
       .append('svg')
-      .attr('width', reSize! - (margin.left + margin.right))
+      .attr('width', chartWidth)
       .attr('height', 300)
       .attr('viewBox', `0 0 ${reSize!} 380`)
       .append('g')
-      .attr('transform', `translate(${margin.left}, ${margin.top + 30})`)
+      .attr('transform', `translate(${margin.left / 2}, ${margin.top + 30})`)
 
     const data = barData.videoInfo.flatMap(({ statistics }, i) =>
       Object.entries(statistics).map(([key, value], j) => ({
@@ -227,7 +231,7 @@ export default function BarGraph({ titie, barData }: BarGraphProps) {
   return (
     <article>
       <div ref={toolTipRef}></div>
-      <div ref={divRef}></div>
+      <div className={styles.bargraph} ref={divRef}></div>
     </article>
   )
 }

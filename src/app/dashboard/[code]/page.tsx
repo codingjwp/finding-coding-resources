@@ -1,5 +1,6 @@
 import { Suspense } from 'react'
-import ChartSkeleton from '@/components/chart-skeleton'
+import ChannelChartSkeleton from '@/components/channel-chart-skeleton'
+import ChannelInfoSkeleton from '@/components/channel-info-skeleton'
 import ChannelInfo from './components/channel-info'
 import ChannelChartGroups from './components/channel-chart-groups'
 
@@ -14,8 +15,10 @@ type DashboardParams = {
 export default function DashBoardPage({ params }: DashboardParams) {
   return (
     <>
-      <ChannelInfo id={params.code} />
-      <Suspense fallback={<ChartSkeleton />}>
+      <Suspense fallback={<ChannelInfoSkeleton />}>
+        <ChannelInfo id={params.code} />
+      </Suspense>
+      <Suspense fallback={<ChannelChartSkeleton />}>
         <ChannelChartGroups id={params.code} />
       </Suspense>
     </>

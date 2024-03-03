@@ -1,6 +1,6 @@
-import styles from '@/styles/chart-skeleton.module.css'
+import styles from '@/styles/channel-chart-skeleton.module.css'
 
-export default function ChartSkeleton() {
+export default function ChannelChartSkeleton() {
   return (
     <div className={styles.cover}>
       {[...Array(3)].map((_, bgIndex) => (

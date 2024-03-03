@@ -6,7 +6,7 @@ import ChannelDescription from './channel-description'
 
 async function getDashBoard(id: string) {
   try {
-    const res = await fetch(`http://localhost:3000/api/channel/${id}`)
+    const res = await fetch(`${process.env.NEXT_API_URL}api/channel/${id}`)
     if (!res.ok) {
       const error = (await res.json()) as ErrorMsg
       throw error

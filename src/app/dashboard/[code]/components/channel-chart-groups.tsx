@@ -2,11 +2,10 @@ import styles from '@/styles/dashboardPage.module.css'
 import BarGraph from '@/components/bargraph'
 import { ErrorMsg, VideosInfo } from 'APITypes'
 import ChannelYoutube from './channel-youtube'
-import { interpolateMagma } from 'd3'
 
 async function getBarChart(id: string) {
   try {
-    const res = await fetch(`http://localhost:3000/api/chart/${id}`)
+    const res = await fetch(`${process.env.NEXT_API_URL}api/chart/${id}`)
     if (!res.ok) {
       const error = (await res.json()) as ErrorMsg
       throw error

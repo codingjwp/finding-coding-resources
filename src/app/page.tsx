@@ -6,7 +6,7 @@ export const revalidate = 0
 
 async function getBanners() {
   try {
-    const res = await fetch('http://localhost:3000/api/banner')
+    const res = await fetch(`${process.env.NEXT_API_URL}api/banner`)
     if (!res.ok) {
       const error = (await res.json()) as ErrorMsg
       throw error

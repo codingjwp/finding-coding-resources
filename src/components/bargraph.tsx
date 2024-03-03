@@ -43,10 +43,16 @@ export default function BarGraph({ titie, barData }: BarGraphProps) {
     select(divRef.current).selectAll('*').remove()
     // margin값
     const margin = { top: 10, bottom: 10, right: 10, left: 10 }
-    const chartWidth =
+
+    let chartWidth =
       reSize! - margin.right - margin.left < 280
         ? 280
         : reSize! - margin.right - margin.left
+    if (reSize! >= 768 && reSize! < 1280) {
+      chartWidth -= 270
+    } else if (reSize! >= 1280) {
+      chartWidth -= 320
+    }
     // 차트 높이
     const chartHeight = 260 - margin.top - margin.bottom
 
@@ -54,7 +60,7 @@ export default function BarGraph({ titie, barData }: BarGraphProps) {
       .append('svg')
       .attr('width', chartWidth)
       .attr('height', 300)
-      .attr('viewBox', `0 0 ${reSize!} 380`)
+      .attr('viewBox', `0 0 ${chartWidth} 380`)
       .append('g')
       .attr('transform', `translate(${margin.left / 2}, ${margin.top + 30})`)
 

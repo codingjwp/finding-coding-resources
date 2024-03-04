@@ -1,25 +1,14 @@
-import { ErrorMsg, ChannelsInfo } from 'APITypes'
+import { ChannelsInfo } from 'APITypes'
 import styles from '@/styles/dashboardPage.module.css'
 import Avatar from '@/components/avatar'
 import ChannelSatistics from './channel-statistics'
 import ChannelDescription from './channel-description'
 
-async function getDashBoard(id: string) {
-  try {
-    const res = await fetch(`${process.env.FETCH_URL!}/api/channel/${id}`)
-    if (!res.ok) {
-      const error = (await res.json()) as ErrorMsg
-      throw error
-    }
-    const data = (await res.json()) as { mainDescription: ChannelsInfo }
-    return data
-  } catch (error: unknown) {
-    throw error as Error
-  }
-}
-
-export default async function ChannelInfo({ id }: { id: string }) {
-  const { mainDescription } = await getDashBoard(id)
+export default async function ChannelInfo({
+  mainDescription,
+}: {
+  mainDescription: ChannelsInfo
+}) {
   return (
     <section className={styles.dashboardSection}>
       {mainDescription && (

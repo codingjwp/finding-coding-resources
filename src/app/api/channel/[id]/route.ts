@@ -1,4 +1,5 @@
 import { ChannelsInfo } from 'APITypes'
+import { NextResponse } from 'next/server'
 
 export const revalidate = 3600 * 24
 
@@ -9,18 +10,22 @@ export async function GET(
   const res = await fetch(process.env.CHANNEL_URL!)
 
   if (!res.ok) {
-    return Response.json({
-      status: 400,
-      error: {
-        message: 'Failed to Dashboard Data.',
-      },
-    })
+    return NextResponse.json(
+      { error: { message: 'Failed to Dashboard Data.' } },
+      { status: 400 },
+    )
   }
   const data1 = (await res.json()) as { channels: ChannelsInfo[] }
 
   const mainDescription = data1.channels.find(
     (channel) => channel.id === params.id,
   )
+  if (!mainDescription) {
+    return NextResponse.json(
+      { error: { message: 'Failed to Dashboard Data.' } },
+      { status: 404 },
+    )
+  }
 
-  return Response.json({ mainDescription })
+  return NextResponse.json({ mainDescription })
 }

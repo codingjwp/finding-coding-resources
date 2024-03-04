@@ -5,12 +5,10 @@ export const revalidate = 3600 * 24
 export async function GET() {
   const response = await fetch(process.env.CHANNEL_URL!)
   if (!response.ok) {
-    return Response.json({
-      status: 400,
-      error: {
-        message: 'Failed to Channel Data. ',
-      },
-    })
+    return Response.json(
+      { error: { message: 'Failed to Channel Data. ' } },
+      { status: 400 },
+    )
   }
   const { channels } = (await response.json()) as { channels: ChannelsInfo[] }
   const data = channels.map((channel) => {

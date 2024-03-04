@@ -5,6 +5,7 @@ import Avatar from '@/components/avatar'
 async function getBanners() {
   try {
     const res = await fetch(`${process.env.FETCH_URL!}/api/banner`)
+
     if (!res.ok) {
       const error = (await res.json()) as ErrorMsg
       throw error

@@ -1,24 +1,35 @@
-import { Suspense } from 'react'
-import ChannelChartSkeleton from '@/components/channel-chart-skeleton'
-import ChannelInfoSkeleton from '@/components/channel-info-skeleton'
-import ChannelInfo from './_compoennts/channel-info'
-import ChannelChartGroups from './_compoennts/channel-chart-groups'
+import { ErrorMsg, NavigationTypes } from 'APITypes'
+import Navbar from '@/components/navbar'
 
-type DashboardParams = {
-  params: {
-    code: string
+async function getNavi() {
+  try {
+    const res = await fetch(`${process.env.FETCH_URL!}/api/navi`)
+    if (!res.ok) {
+      const error = (await res.json()) as ErrorMsg
+      throw error
+    }
+    const data = (await res.json()) as NavigationTypes[]
+    return data
+  } catch (error: unknown) {
+    throw error as Error
   }
 }
 
-export default function DashBoardPage({ params }: DashboardParams) {
+export default async function DashBoardPage({
+  params,
+}: {
+  params: { code: string }
+}) {
+  const navis = await getNavi()
+  const channel = navis.find((navi) => navi.id === params.code)
   return (
-    <>
-      <Suspense fallback={<ChannelInfoSkeleton />}>
-        <ChannelInfo id={params.code} />
-      </Suspense>
-      <Suspense fallback={<ChannelChartSkeleton />}>
-        <ChannelChartGroups id={params.code} />
-      </Suspense>
-    </>
+    <Navbar
+      title={
+        channel?.customUrl === ''
+          ? channel?.title || 'notfound'
+          : channel?.customUrl || 'notfound'
+      }
+      navGroups={navis}
+    />
   )
 }

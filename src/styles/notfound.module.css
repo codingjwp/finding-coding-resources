@@ -1,0 +1,43 @@
+.notfoundWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--black-300-color);
+  color: var(--white-100-color);
+}
+
+.notfoundCover {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.notfoundCover > h2 {
+  font-size: 2.5rem;
+}
+.notfoundCover > h2::after {
+  content: '';
+  margin-left: 1rem;
+  width: 0.2rem;
+  height: 100%;
+  border: 0.2rem white solid;
+}
+
+.notfoundLink,
+.notfoundCover > p {
+  font-size: 1.8rem;
+}
+
+.notfoundLink {
+  padding: 1rem;
+}
+
+.notfoundLink:hover {
+  border-radius: 0.6rem;
+  background-color: var(--black-200-color);
+}

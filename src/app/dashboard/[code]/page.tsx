@@ -1,10 +1,8 @@
 import { Suspense } from 'react'
 import ChannelChartSkeleton from '@/components/channel-chart-skeleton'
 import ChannelInfoSkeleton from '@/components/channel-info-skeleton'
-import ChannelInfo from './components/channel-info'
-import ChannelChartGroups from './components/channel-chart-groups'
-
-export const revalidate = 1000 * 60 * 60 * 24
+import ChannelInfo from './_compoennts/channel-info'
+import ChannelChartGroups from './_compoennts/channel-chart-groups'
 
 type DashboardParams = {
   params: {

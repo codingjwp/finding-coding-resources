@@ -2,11 +2,9 @@ import styles from '@/styles/rootPage.module.css'
 import { BannerTypes, ErrorMsg } from 'APITypes'
 import Avatar from '@/components/avatar'
 
-export const revalidate = 1000 * 60 * 60 * 24
-
 async function getBanners() {
   try {
-    const res = await fetch(`${process.env.NEXT_API_URL}api/banner`)
+    const res = await fetch(`${process.env.FETCH_URL!}/api/banner`)
     if (!res.ok) {
       const error = (await res.json()) as ErrorMsg
       throw error

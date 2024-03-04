@@ -5,7 +5,7 @@ import ChannelYoutube from './channel-youtube'
 
 async function getBarChart(id: string) {
   try {
-    const res = await fetch(`${process.env.NEXT_API_URL}api/chart/${id}`)
+    const res = await fetch(`${process.env.FETCH_URL!}/api/chart/${id}`)
     if (!res.ok) {
       const error = (await res.json()) as ErrorMsg
       throw error

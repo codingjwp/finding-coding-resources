@@ -11,7 +11,7 @@ export function generateMetadata() {
 
 async function getNavi() {
   try {
-    const res = await fetch(`${process.env.NEXT_API_URL}api/navi`)
+    const res = await fetch(`${process.env.FETCH_URL!}/api/navi`)
     if (!res.ok) {
       const error = (await res.json()) as ErrorMsg
       throw error

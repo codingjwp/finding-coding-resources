@@ -46,21 +46,21 @@ export default function BarGraph({ titie, barData }: BarGraphProps) {
 
     let chartWidth =
       reSize! - margin.right - margin.left < 280
-        ? 280
+        ? 260
         : reSize! - margin.right - margin.left
     if (reSize! >= 768 && reSize! < 1280) {
-      chartWidth -= 270
+      chartWidth -= 290
     } else if (reSize! >= 1280) {
-      chartWidth -= 320
+      chartWidth -= 340
     }
     // 차트 높이
-    const chartHeight = 260 - margin.top - margin.bottom
+    const chartHeight = 240
 
     const svg = select(divRef.current)
       .append('svg')
       .attr('width', chartWidth)
-      .attr('height', 300)
-      .attr('viewBox', `0 0 ${chartWidth} 380`)
+      .attr('height', chartHeight)
+      .attr('viewBox', `0 0 ${chartWidth} ${chartHeight + 60}`)
       .append('g')
       .attr('transform', `translate(${margin.left / 2}, ${margin.top + 30})`)
 
@@ -164,7 +164,7 @@ export default function BarGraph({ titie, barData }: BarGraphProps) {
       select(event.target as SVGAElement).style('opacity', 0.5)
     }
     const mouseLeave = (event: MouseEvent) => {
-      tooltip.style('opacity', 0)
+      tooltip.style('opacity', 0).style('top', 0).style('left', 0)
       select(event.target as SVGAElement).style('opacity', 1)
     }
 

@@ -7,12 +7,12 @@ async function getBanners() {
     const res = await fetch(`${process.env.FETCH_URL!}/api/banner`)
     if (!res.ok) {
       const error = (await res.json()) as ErrorMsg
-      throw error
+      throw new Error(error.message)
     }
     const data = (await res.json()) as BannerTypes[]
     return data
   } catch (error: unknown) {
-    throw error as Error
+    throw new Error((error as Error).message)
   }
 }
 

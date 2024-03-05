@@ -168,18 +168,18 @@
   }
 }
 
-.errorContiner {
+.errorContainer {
   background-color: #cf6679;
   color: #b00020;
 }
 
-.errorContiner > h2 {
+.errorContainer > h2 {
   margin: 0;
   padding: 1rem;
   font-size: 2.5rem;
   font-weight: bold;
 }
-.errorContiner > p {
+.errorContainer > p {
   margin: 0;
   padding: 0 1rem 1rem;
   font-size: 1.8rem;

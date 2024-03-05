@@ -1,13 +1,13 @@
 import { ChannelsInfo } from 'APITypes'
 
-export const revalidate = 3600 * 24
+// export const revalidate = 3600 * 24
 
 export async function GET() {
   const response = await fetch(process.env.CHANNEL_URL!)
 
   if (!response.ok) {
     return Response.json(
-      { message: 'Failed to Channel Data. ' },
+      { message: 'Failed to Channel Banner Data. ' },
       { status: 400 },
     )
   }

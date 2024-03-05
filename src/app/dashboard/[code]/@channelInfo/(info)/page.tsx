@@ -19,11 +19,7 @@ async function getDashBoard(id: string) {
   }
 }
 
-export default async function ChannelInfoPage({
-  params,
-}: {
-  params: { code: string }
-}) {
+export default async function Page({ params }: { params: { code: string } }) {
   const { mainDescription } = await getDashBoard(params.code)
 
   return <ChannelInfo mainDescription={mainDescription} />

@@ -7,7 +7,7 @@ export function generateMetadata() {
   }
 }
 
-export default async function DashboardLayout({
+export default async function Layout({
   children,
   channelInfo,
   channelChart,

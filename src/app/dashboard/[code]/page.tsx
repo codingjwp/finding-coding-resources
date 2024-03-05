@@ -15,11 +15,7 @@ async function getNavi() {
   }
 }
 
-export default async function DashBoardPage({
-  params,
-}: {
-  params: { code: string }
-}) {
+export default async function Page({ params }: { params: { code: string } }) {
   const navis = await getNavi()
   const channel = navis.find((navi) => navi.id === params.code)
   return (

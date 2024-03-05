@@ -12,6 +12,11 @@ export default function Error({
     <div className={`${styles.navbar} ${styles.errorContiner}`}>
       <h2>Error</h2>
       <p>{error.message}</p>
+      <div className={styles.resetContainer}>
+        <button type="button" title="navi_reset" onClick={reset}>
+          Try agin
+        </button>
+      </div>
     </div>
   )
 }

@@ -5,7 +5,6 @@ import Avatar from '@/components/avatar'
 async function getBanners() {
   try {
     const res = await fetch(`${process.env.FETCH_URL!}/api/banner`)
-
     if (!res.ok) {
       const error = (await res.json()) as ErrorMsg
       throw error
@@ -17,7 +16,7 @@ async function getBanners() {
   }
 }
 
-export default async function RootPage() {
+export default async function Page() {
   const banners = await getBanners()
   return (
     <main className={styles.rootMain}>

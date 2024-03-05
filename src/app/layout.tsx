@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Coding-related analytics dashboard ',
 }
 
-export default function RootLayout({
+export default function Layout({
   children,
 }: Readonly<{
   children: ReactNode

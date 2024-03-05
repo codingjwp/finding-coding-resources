@@ -19,11 +19,7 @@ async function getBarChart(id: string) {
   }
 }
 
-export default async function ChannelChartPage({
-  params,
-}: {
-  params: { code: string }
-}) {
+export default async function Page({ params }: { params: { code: string } }) {
   const { view, rating, latest } = await getBarChart(params.code)
 
   return <ChannelChartGroups view={view} rating={rating} latest={latest} />

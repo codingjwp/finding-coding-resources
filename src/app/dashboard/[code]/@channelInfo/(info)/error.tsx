@@ -12,6 +12,11 @@ export default function Error({
     <div className={styles.errorContainer}>
       <h2>Error</h2>
       <p>{error.message}</p>
+      <div className={styles.resetContainer}>
+        <button type="button" title="info_reset" onClick={reset}>
+          Try agin
+        </button>
+      </div>
     </div>
   )
 }

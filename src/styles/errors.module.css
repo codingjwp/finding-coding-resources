@@ -17,3 +17,22 @@
   padding: 0 1rem 1rem;
   font-size: 1.8rem;
 }
+
+.resetContainer {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 1rem;
+}
+
+.resetContainer > button {
+  padding: 1rem;
+  font-size: 1.6rem;
+  border-radius: 0.6rem;
+  margin-right: 2rem;
+  background-color: #7f39fb;
+  color: var(--white-100-color);
+}
+
+.resetContainer > button:hover {
+  background-color: #9153fc;
+}

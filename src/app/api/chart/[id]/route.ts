@@ -1,6 +1,6 @@
 import { VideosInfo } from 'APITypes'
 
-// export const revalidate = 3600 * 24
+export const revalidate = 3600 * 24
 
 export async function GET(
   _request: Request,

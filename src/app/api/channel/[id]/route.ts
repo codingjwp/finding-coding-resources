@@ -1,7 +1,7 @@
 import { ChannelsInfo } from 'APITypes'
 import { NextResponse } from 'next/server'
 
-// export const revalidate = 3600 * 24
+export const revalidate = 3600 * 24
 
 export async function GET(
   _request: Request,

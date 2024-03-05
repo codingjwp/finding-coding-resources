@@ -1,6 +1,6 @@
 import { VideosInfo } from 'APITypes'
 
-export const revalidate = 3600 * 24
+// export const revalidate = 3600 * 24
 
 export async function GET(
   _request: Request,
@@ -10,7 +10,7 @@ export async function GET(
 
   if (!res.ok) {
     return Response.json(
-      { error: { message: 'Failed to Dashboard Data. ' } },
+      { message: 'Failed to Dashboard Channel Chart Data' },
       { status: 400 },
     )
   }

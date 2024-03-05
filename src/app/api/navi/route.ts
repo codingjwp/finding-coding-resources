@@ -6,7 +6,7 @@ export async function GET() {
   const response = await fetch(process.env.CHANNEL_URL!)
   if (!response.ok) {
     return Response.json(
-      { error: { message: 'Failed to Channel Data. ' } },
+      { message: 'Failed to Navigation Data. ' },
       { status: 400 },
     )
   }

@@ -1,6 +1,4 @@
 import { ErrorMsg, ChannelsInfo } from 'APITypes'
-import { Suspense } from 'react'
-import ChannelInfoSkeleton from '@/components/channel-info-skeleton'
 import ChannelInfo from '@/app/dashboard/[code]/_compoennts/channel-info'
 import { notFound } from 'next/navigation'
 
@@ -12,12 +10,12 @@ async function getDashBoard(id: string) {
         notFound()
       }
       const error = (await res.json()) as ErrorMsg
-      throw error
+      throw new Error(error.message)
     }
     const data = (await res.json()) as { mainDescription: ChannelsInfo }
     return data
   } catch (error: unknown) {
-    throw error as Error
+    throw new Error((error as Error).message)
   }
 }
 
@@ -28,9 +26,5 @@ export default async function ChannelInfoPage({
 }) {
   const { mainDescription } = await getDashBoard(params.code)
 
-  return (
-    <Suspense fallback={<ChannelInfoSkeleton />}>
-      <ChannelInfo mainDescription={mainDescription} />
-    </Suspense>
-  )
+  return <ChannelInfo mainDescription={mainDescription} />
 }

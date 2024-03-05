@@ -55,8 +55,6 @@ declare module 'APITypes' {
 
   export type ErrorMsg = {
     status: number
-    error: {
-      message: string
-    }
+    message: string
   }
 }

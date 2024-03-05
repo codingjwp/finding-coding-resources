@@ -1,7 +1,7 @@
 import { ChannelsInfo } from 'APITypes'
 import { NextResponse } from 'next/server'
 
-export const revalidate = 3600 * 24
+// export const revalidate = 3600 * 24
 
 export async function GET(
   _request: Request,
@@ -11,7 +11,7 @@ export async function GET(
 
   if (!res.ok) {
     return NextResponse.json(
-      { error: { message: 'Failed to Dashboard Data.' } },
+      { message: 'Failed to Dashboard Channel Info Data.' },
       { status: 400 },
     )
   }
@@ -21,10 +21,7 @@ export async function GET(
     (channel) => channel.id === params.id,
   )
   if (!mainDescription) {
-    return NextResponse.json(
-      { error: { message: 'Failed to Dashboard Data.' } },
-      { status: 404 },
-    )
+    return NextResponse.json({ message: 'Not Found Page' }, { status: 404 })
   }
 
   return NextResponse.json({ mainDescription })

@@ -7,7 +7,7 @@ export async function GET() {
 
   if (!response.ok) {
     return Response.json(
-      { error: { message: 'Failed to Channel Data. ' } },
+      { message: 'Failed to Channel Data. ' },
       { status: 400 },
     )
   }

@@ -1,0 +1,26 @@
+.descriptionContainer {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  padding: 1rem 1rem;
+  background-color: var(--black-300-color);
+}
+
+.descriptionTitle {
+  font-size: 1.2rem;
+}
+
+.descriptionDetail {
+  width: 100%;
+  height: 7.2rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  white-space: pre-wrap;
+}
+
+@media screen and (min-width: 768px) {
+  .descriptionTitle {
+    font-size: 2rem;
+  }
+}

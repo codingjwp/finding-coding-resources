@@ -1,16 +1,16 @@
 import { ChannelsInfo } from 'APITypes'
-import styles from '@/styles/dashboardPage.module.css'
+import styles from '@/styles/dashboards/channel-info.module.css'
 import Avatar from '@/components/avatar'
-import ChannelSatistics from './channel-statistics'
-import ChannelDescription from './channel-description'
+import TotalStatistics from '@/app/dashboard/[code]/_compoennts/total-statistics'
+import Description from '@/app/dashboard/[code]/_compoennts/description'
 
-export default async function ChannelInfo({
+export default function ChannelInfo({
   mainDescription,
 }: {
   mainDescription: ChannelsInfo
 }) {
   return (
-    <section className={styles.dashboardSection}>
+    <section className={styles.infoContainer}>
       {mainDescription && (
         <>
           <Avatar
@@ -23,8 +23,8 @@ export default async function ChannelInfo({
             }}
             naming={mainDescription.customUrl || '@userNotFound'}
           />
-          <ChannelSatistics {...mainDescription.statistics} />
-          <ChannelDescription
+          <TotalStatistics {...mainDescription.statistics} />
+          <Description
             title={mainDescription.title}
             publishedAt={mainDescription.publishedAt}
             description={mainDescription.description}

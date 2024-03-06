@@ -1,15 +1,14 @@
-import styles from '@/styles/channel-youtube.module.css'
+import styles from '@/styles/iframe-video.module.css'
 
-type ChannelYoutubeProps = {
+type IframeVideoProps = {
   videoId: string
 }
 
-export default function ChannelYoutube({ videoId }: ChannelYoutubeProps) {
+export default function IframeVideo({ videoId }: IframeVideoProps) {
   return (
-    <div className={styles.youtubeContainer}>
+    <div className={styles.ifranmeContainer}>
       <iframe
-        key={videoId}
-        className={styles.youtubeVideo}
+        className={styles.ifranmeVideo}
         src={`${process.env.YOUTUBE_IFRAME_URL!}${videoId}`}
         title="YouTube video player"
         allowFullScreen

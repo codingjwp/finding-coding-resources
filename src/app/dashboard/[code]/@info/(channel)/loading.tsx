@@ -1,4 +1,4 @@
-import styles from '@/styles/skeleton.module.css'
+import styles from '@/styles/dashboards/skeleton.module.css'
 
 export default function Loading() {
   return (

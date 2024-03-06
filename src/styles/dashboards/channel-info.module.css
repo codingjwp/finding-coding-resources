@@ -1,0 +1,22 @@
+.infoContainer {
+  color: var(--white-100-color);
+}
+
+.infoContainer > div {
+  padding: 1rem 1rem;
+  display: flex;
+  column-gap: 1.5rem;
+  place-items: center;
+  font-size: 1.4rem;
+}
+
+.infoContainer > div > img {
+  border-radius: 50%;
+}
+
+.infoContainer > div > h3 {
+  width: 100%;
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-all;
+}

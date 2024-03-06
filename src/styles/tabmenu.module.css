@@ -1,0 +1,23 @@
+.tabmenu {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 0.4rem;
+}
+
+.tabmenu li button {
+  padding: 1rem;
+  font-size: 1.4rem;
+  border-radius: 0.6rem 0.6rem 0 0;
+  background-color: #bb86fc;
+  color: var(--black-100-color);
+  transition: padding 0.4s ease-out;
+  text-transform: uppercase;
+}
+
+.tabmenu li button.selectTabmenu {
+  background-color: #7f39fb;
+  color: var(--white-100-color);
+  font-size: 1.6rem;
+  padding: 1.2rem;
+}

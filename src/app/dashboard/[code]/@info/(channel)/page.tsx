@@ -1,5 +1,5 @@
 import { ErrorMsg, ChannelsInfo } from 'APITypes'
-import ChannelInfo from '@/app/dashboard/[code]/_compoennts/channel-info'
+import ChannelInfo from '@/app/dashboard/[code]/_pages/channel-info'
 import { notFound } from 'next/navigation'
 
 async function getDashBoard(id: string) {

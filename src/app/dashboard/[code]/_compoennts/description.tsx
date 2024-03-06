@@ -1,30 +1,30 @@
-import styles from '@/styles/dashboardPage.module.css'
+import styles from '@/styles/dashboards/description.module.css'
 
-type ChannelDescriptionProps = {
+type DescriptionProps = {
   title: string
   publishedAt: string
   description: string
 }
 
-export default function ChannelDescription({
+export default function Description({
   title,
   publishedAt,
   description,
-}: ChannelDescriptionProps) {
+}: DescriptionProps) {
   function dateFommater(date: string) {
     const localDate = new Date(date)
     return localDate.toLocaleDateString('ko-Kr')
   }
 
   return (
-    <article className={`${styles.dashboardDescription} ${styles.itemPadding}`}>
+    <article className={styles.descriptionContainer}>
       <strong className={styles.descriptionTitle}>{title}</strong>
       <p>
         생성일자 : <time>{dateFommater(publishedAt)}</time>
       </p>
       <details>
         <summary>채널설명</summary>
-        <pre className={`${styles.descriptionDetail}`}>
+        <pre className={styles.descriptionDetail}>
           {description === '' ? '채널 설명이 존재하지 않습니다.' : description}
         </pre>
       </details>

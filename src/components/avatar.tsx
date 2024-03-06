@@ -16,7 +16,13 @@ type AvatarProps = {
 export default function Avatar({ type, avatarImg, naming, href }: AvatarProps) {
   if (type === 'link' || type === 'banner') {
     return (
-      <Link href={href!} scroll={type === 'link' && false}>
+      <Link
+        href={{
+          pathname: href!,
+          query: { chart: 'bar' },
+        }}
+        scroll={false}
+      >
         <Image
           src={avatarImg.url}
           width={avatarImg.width}

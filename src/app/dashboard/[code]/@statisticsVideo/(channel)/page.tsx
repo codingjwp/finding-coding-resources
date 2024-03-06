@@ -1,5 +1,5 @@
 import { ErrorMsg, VideosInfo } from 'APITypes'
-import ChannelChartGroups from '@/app/dashboard/[code]/_compoennts/channel-chart-groups'
+import ChannelStatisticsVideo from '@/app/dashboard/[code]/_pages/channel-statistics-video'
 
 async function getBarChart(id: string) {
   try {
@@ -22,5 +22,5 @@ async function getBarChart(id: string) {
 export default async function Page({ params }: { params: { code: string } }) {
   const { view, rating, latest } = await getBarChart(params.code)
 
-  return <ChannelChartGroups view={view} rating={rating} latest={latest} />
+  return <ChannelStatisticsVideo view={view} rating={rating} latest={latest} />
 }

@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import styles from '@/styles/dashboardPage.module.css'
+import styles from '@/styles/dashboards/dashboard.module.css'
 
 export function generateMetadata() {
   return {
@@ -9,18 +9,18 @@ export function generateMetadata() {
 
 export default async function Layout({
   children,
-  channelInfo,
-  channelChart,
+  info,
+  statisticsVideo,
 }: {
   children: ReactNode
-  channelInfo: ReactNode
-  channelChart: ReactNode
+  info: ReactNode
+  statisticsVideo: ReactNode
 }) {
   return (
-    <main className={styles.dashboardLayout}>
+    <main className={styles.dashboardContainer}>
       {children}
-      {channelInfo}
-      {channelChart}
+      {info}
+      {statisticsVideo}
     </main>
   )
 }

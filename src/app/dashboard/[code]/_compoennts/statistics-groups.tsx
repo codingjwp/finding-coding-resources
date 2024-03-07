@@ -3,6 +3,7 @@
 import { VideosInfo } from 'APITypes'
 import styles from '@/styles/dashboards/statistics-video.module.css'
 import BarGraph from '@/components/bargraph'
+import LineGraph from '@/components/linegraph'
 import Tabmenu from '@/components/tabmenu'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/navigation'
@@ -41,7 +42,11 @@ export default function StatisticsGroups({
       <BarGraph titie="댓글순" barData={latest} />
     </section>
   )
-  const lineChart = <section className={styles.chartGroups}></section>
+  const lineChart = (
+    <section className={styles.chartGroups}>
+      <LineGraph titie="조회순" lineData={view} />
+    </section>
+  )
   const pieChart = <section className={styles.chartGroups}></section>
 
   return (

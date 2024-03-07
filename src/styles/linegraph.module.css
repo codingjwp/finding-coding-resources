@@ -1,0 +1,21 @@
+.container {
+  position: relative;
+}
+.linegraph {
+  display: flex;
+  justify-content: center;
+}
+.axis {
+  font-size: 1.4rem;
+  color: var(--white-100-color);
+}
+
+.toolTip {
+  position: absolute;
+  opacity: 0;
+  background-color: #f9f9f9;
+  border: 0.1rem solid;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  z-index: 5;
+}

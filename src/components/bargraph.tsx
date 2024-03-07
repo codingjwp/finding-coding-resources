@@ -71,12 +71,9 @@ export default function BarGraph({ titie, barData }: BarGraphProps) {
         value: +value,
       })),
     )
-
+    const ranks = Array.from(new Set(data.map((item) => item.rank)))
     // range([0, chartWidth]) 차트 x 범위 padding 막대 안,밖 간격
-    const xScale = scaleBand()
-      .domain(data.map((item) => item.rank))
-      .range([0, chartWidth])
-      .padding(0.2)
+    const xScale = scaleBand().domain(ranks).range([0, chartWidth]).padding(0.2)
 
     // x축 작성
     svg

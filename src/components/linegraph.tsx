@@ -8,9 +8,9 @@ import {
   format,
   axisRight,
   line,
-  max,
-  scaleOrdinal,
-  group,
+  Line,
+  bisector,
+  pointer,
 } from 'd3'
 import { useEffect, useRef, useState } from 'react'
 import styles from '@/styles/linegraph.module.css'
@@ -66,6 +66,9 @@ export default function LineGraph({ titie, lineData }: GraphProps) {
       .attr('viewBox', `0 0 ${chartWidth} ${chartHeight + 60}`)
       .append('g')
       .attr('transform', `translate(${margin.left / 2}, ${margin.top + 30})`)
+      .on('pointerenter pointermove', pointermoved)
+      .on('pointerleave', pointerleft)
+      .on('touchstart', (event) => event.preventDefault())
 
     const data = lineData.videoInfo.map(({ statistics }, i) => ({
       rank: i + 1,
@@ -128,40 +131,110 @@ export default function LineGraph({ titie, lineData }: GraphProps) {
       )
       .selectAll('text')
 
-    const viewLine = line<lineDataTypes>()
-      .x((d) => xScale(d.rank))
-      .y((d) => yLeftScale(d.view))
+    function setLineScale(type: string) {
+      return line<lineDataTypes>()
+        .x((d) => xScale(d.rank))
+        .y((d) => {
+          if (type === 'view') return yLeftScale(d.view)
+          else if (type === 'like') return yRightScale(d.like)
+          else return yRightScale(d.comment)
+        })
+    }
 
-    const likeLine = line<lineDataTypes>()
-      .x((d) => xScale(d.rank))
-      .y((d) => yRightScale(d.like))
+    function lineDrawSvg(line: Line<lineDataTypes>, color: string) {
+      return svg
+        .append('path')
+        .datum(data)
+        .attr('fill', 'none')
+        .attr('d', line)
+        .attr('stroke-width', 2)
+        .attr('stroke', color)
+    }
 
-    const commentLine = line<lineDataTypes>()
-      .x((d) => xScale(d.rank))
-      .y((d) => yRightScale(d.comment))
+    lineDrawSvg(setLineScale('view'), '#6200ee')
+    lineDrawSvg(setLineScale('like'), '#BB86FC')
+    lineDrawSvg(setLineScale('comment'), '#7f39fb')
 
-    svg
-      .append('path')
-      .datum(data)
-      .attr('fill', 'none')
-      .attr('d', viewLine)
-      .attr('stroke-width', 2)
-      .attr('stroke', '#6200ee')
+    const texts = [titie, 'View', 'Like', 'Comment']
+    const rects = ['#6200ee', '#BB86FC', '#7f39fb']
+    const xPosition = -margin.left * 0.6
+    const yTextPosition = -(margin.top * 1.4)
+    const yRectPosition = -margin.top * 2.5
+    let plusPos = 0
+    texts.forEach((item, i) => {
+      if (i > 0) {
+        plusPos += i === 1 ? 80 : 60
+      }
+      svg
+        .append('text')
+        .attr('x', xPosition + plusPos)
+        .attr('y', yTextPosition)
+        .attr('font-size', `${i === 0 ? '14px' : '12px'}`)
+        .attr('fill', 'white')
+        .text(item)
+    })
 
-    svg
-      .append('path')
-      .datum(data)
-      .attr('fill', 'none')
-      .attr('d', likeLine)
-      .attr('stroke-width', 2)
-      .attr('stroke', '#BB86FC')
-    svg
-      .append('path')
-      .datum(data)
-      .attr('fill', 'none')
-      .attr('d', commentLine)
-      .attr('stroke-width', 2)
-      .attr('stroke', '#7f39fb')
+    rects.forEach((rect, i) => {
+      svg
+        .append('rect')
+        .attr('x', xPosition + (i + 1) * 60)
+        .attr('y', yRectPosition)
+        .attr('width', 13)
+        .attr('height', 13)
+        .style('fill', rect)
+    })
+
+    const tooltip = svg.append('g')
+    const bisect = bisector<lineDataTypes, unknown>((d) => d.rank).center
+
+    function pointermoved(event: PointerEvent) {
+      const i = bisect(data, xScale.invert(pointer(event)[0]))
+      tooltip.style('display', null)
+      tooltip.attr(
+        'transform',
+        `translate(${xScale(data[i].rank)}, ${chartHeight / 2})`,
+      )
+      const path = tooltip
+        .selectAll('path')
+        .data([,])
+        .join('path')
+        .attr('fill', 'white')
+        .attr('stroke', 'black')
+
+      const fomater = format(',')
+      const text = tooltip
+        .selectAll('text')
+        .data([,])
+        .join('text')
+        .call((text) =>
+          text
+            .selectAll('tspan')
+            .data([
+              `${data[i].rank}위`,
+              `view: ${fomater(data[i].view)}`,
+              `like: ${fomater(data[i].like)}`,
+              `comment: ${fomater(data[i].comment)}`,
+            ])
+            .join('tspan')
+            .attr('x', 0)
+            .attr('y', (_, i) => `${i * 1.2}em`)
+            .attr('font-size', '1.6rem')
+            .attr('font-weight', (_, i) => (i ? null : 'bold'))
+            .text((d) => d),
+        )
+
+      const {
+        y,
+        width: w,
+        height: h,
+      } = (text.node() as SVGTextElement).getBBox()
+      text.attr('transform', `translate(${-w / 2},${15 - y})`)
+      path.attr('d', `M${-w / 2 - 10},5H${w / 2 + 10}v${h + 20}h-${w + 20}z`)
+    }
+
+    function pointerleft() {
+      tooltip.style('display', 'none')
+    }
   }
 
   if (reSize) {

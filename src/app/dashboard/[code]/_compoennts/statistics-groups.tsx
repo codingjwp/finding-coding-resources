@@ -45,6 +45,8 @@ export default function StatisticsGroups({
   const lineChart = (
     <section className={styles.chartGroups}>
       <LineGraph titie="조회순" lineData={view} />
+      <LineGraph titie="추천순" lineData={rating} />
+      <LineGraph titie="댓글순" lineData={latest} />
     </section>
   )
   const pieChart = <section className={styles.chartGroups}></section>

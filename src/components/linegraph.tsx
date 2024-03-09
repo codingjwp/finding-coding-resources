@@ -30,7 +30,6 @@ type lineDataTypes = {
 
 export default function LineGraph({ titie, lineData }: GraphProps) {
   const divRef = useRef<HTMLDivElement>(null)
-  const toolTipRef = useRef<HTMLDivElement>(null)
   const [reSize, setReSize] = useState<number | null>(null)
 
   useEffect(() => {
@@ -145,10 +144,9 @@ export default function LineGraph({ titie, lineData }: GraphProps) {
       return svg
         .append('path')
         .datum(data)
-        .attr('fill', 'none')
         .attr('d', line)
-        .attr('stroke-width', 2)
         .attr('stroke', color)
+        .classed(styles.lineDraw, true)
     }
 
     lineDrawSvg(setLineScale('view'), '#6200ee')
@@ -198,8 +196,7 @@ export default function LineGraph({ titie, lineData }: GraphProps) {
         .selectAll('path')
         .data([,])
         .join('path')
-        .attr('fill', 'white')
-        .attr('stroke', 'black')
+        .classed(styles.tooltip, true)
 
       const fomater = format(',')
       const text = tooltip
@@ -243,7 +240,6 @@ export default function LineGraph({ titie, lineData }: GraphProps) {
 
   return (
     <article>
-      <div ref={toolTipRef}></div>
       <div ref={divRef} className={styles.linegraph}></div>
     </article>
   )

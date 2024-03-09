@@ -5,7 +5,7 @@ import styles from '@/styles/dashboards/statistics-video.module.css'
 import BarGraph from '@/components/bargraph'
 import LineGraph from '@/components/linegraph'
 import Tabmenu from '@/components/tabmenu'
-import { usePathname, useSearchParams } from 'next/navigation'
+import { notFound, usePathname, useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/navigation'
 
 type StatisticsGroups = {
@@ -33,6 +33,10 @@ export default function StatisticsGroups({
   if (!type) {
     handleChangeQueryString('bar')
     type = 'bar'
+  } else {
+    if (type !== 'bar' && type !== 'line') {
+      notFound()
+    }
   }
 
   const barChart = (
@@ -49,18 +53,16 @@ export default function StatisticsGroups({
       <LineGraph titie="댓글순" lineData={latest} />
     </section>
   )
-  const pieChart = <section className={styles.chartGroups}></section>
 
   return (
     <>
       <Tabmenu
-        menuList={['bar', 'line', 'pie']}
+        menuList={['bar', 'line']}
         onSelect={handleChangeQueryString}
         checkType={type}
       />
       {type === 'bar' && barChart}
       {type === 'line' && lineChart}
-      {type === 'pie' && pieChart}
     </>
   )
 }

@@ -1,21 +1,19 @@
-.container {
-  position: relative;
-}
 .linegraph {
   display: flex;
   justify-content: center;
 }
+
+.lineDraw {
+  fill: none;
+  stroke-width: 2;
+}
+
 .axis {
   font-size: 1.4rem;
   color: var(--white-100-color);
 }
 
 .toolTip {
-  position: absolute;
-  opacity: 0;
-  background-color: #f9f9f9;
-  border: 0.1rem solid;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  z-index: 5;
+  fill: var(--white-100-color);
+  stroke: var(--black-100-color);
 }

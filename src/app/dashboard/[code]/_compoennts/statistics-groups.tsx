@@ -27,7 +27,7 @@ export default function StatisticsGroups({
   const handleChangeQueryString = (checkType: string) => {
     const params = new URLSearchParams(searchParams.toString())
     params.set('chart', checkType)
-    router.push(`${pathname}?${params.toString()}`, { scroll: false })
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false })
   }
 
   if (!type) {

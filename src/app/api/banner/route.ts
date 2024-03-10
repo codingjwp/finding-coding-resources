@@ -1,6 +1,6 @@
 import { ChannelsInfo } from 'APITypes'
 
-// export const revalidate = 3600 * 24
+export const revalidate = 3600 * 24
 
 export async function GET() {
   const response = await fetch(process.env.CHANNEL_URL!)

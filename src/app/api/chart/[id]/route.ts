@@ -1,4 +1,5 @@
 import { VideosInfo } from 'APITypes'
+import { NextResponse } from 'next/server'
 
 export const revalidate = 3600 * 24
 
@@ -9,7 +10,7 @@ export async function GET(
   const res = await fetch(process.env.VIDEOS_URL!)
 
   if (!res.ok) {
-    return Response.json(
+    return NextResponse.json(
       { message: 'Failed to Dashboard Channel Chart Data' },
       { status: 400 },
     )
@@ -25,5 +26,5 @@ export async function GET(
   const latest =
     data.latest.find((latest) => latest.channelId === params.id) || []
 
-  return Response.json({ view, rating, latest })
+  return NextResponse.json({ view, rating, latest })
 }

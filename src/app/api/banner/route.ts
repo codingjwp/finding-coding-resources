@@ -1,4 +1,5 @@
 import { ChannelsInfo } from 'APITypes'
+import { NextResponse } from 'next/server'
 
 export const revalidate = 3600 * 24
 
@@ -6,7 +7,7 @@ export async function GET() {
   const response = await fetch(process.env.CHANNEL_URL!)
 
   if (!response.ok) {
-    return Response.json(
+    return NextResponse.json(
       { message: 'Failed to Channel Banner Data. ' },
       { status: 400 },
     )
@@ -21,5 +22,5 @@ export async function GET() {
       height: channel.thumbnails.medium.height,
     }
   })
-  return Response.json(data)
+  return NextResponse.json(data)
 }
